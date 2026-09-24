@@ -3,7 +3,7 @@ import "./globals.css";
 
 const siteUrl = new URL(
   process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://made-simple-cleans-premium.thesoftwaretriad.chatgpt.site",
+    "https://vibak-cleaning-services.thesoftwaretriad.chatgpt.site",
 );
 
 export const metadata: Metadata = {
