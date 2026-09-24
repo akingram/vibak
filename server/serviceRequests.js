@@ -20,6 +20,15 @@ export function validateServiceRequest(body) {
     frequency: clean(body.frequency),
     preferredDate: clean(body.preferredDate),
     address: clean(body.address),
+    roomCount: clean(body.roomCount),
+    bathroomCount: clean(body.bathroomCount),
+    propertySize: clean(body.propertySize),
+    currentCondition: clean(body.currentCondition),
+    accessMethod: clean(body.accessMethod),
+    supplies: clean(body.supplies),
+    parkingAccess: clean(body.parkingAccess),
+    priorityAreas: clean(body.priorityAreas),
+    screeningNotes: clean(body.screeningNotes),
     details: clean(body.details),
   };
 

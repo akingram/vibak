@@ -173,6 +173,10 @@ const requestChecklist = [
     title: "Preferred rhythm",
     text: "Choose one-time, weekly, bi-weekly, monthly, or let Vibak help shape a suitable schedule.",
   },
+  {
+    title: "In-depth screening",
+    text: "Add property size, condition, access, products, parking, and priority areas before the clean is arranged.",
+  },
 ];
 
 const faqs = [
@@ -192,6 +196,11 @@ const faqs = [
       "Yes. Weekly, bi-weekly, monthly, and one-time cleaning options can be arranged around your needs.",
   },
   {
+    question: "Why does the request form ask screening questions?",
+    answer:
+      "The extra details help Vibak understand the size, condition, access, supplies, and priority areas before confirming the clean.",
+  },
+  {
     question: "Do you handle tenancy and move-out cleaning?",
     answer:
       "Yes. End of tenancy, move-in, and move-out cleaning are part of the service range.",
@@ -208,6 +217,35 @@ const propertyTypes = [
   "Tenant / Landlord Property",
 ];
 const frequencies = ["One-time", "Weekly", "Bi-weekly", "Monthly", "Not sure yet"];
+const roomCounts = ["Studio / room", "1 bedroom", "2 bedrooms", "3 bedrooms", "4+ bedrooms", "Not sure"];
+const bathroomCounts = ["1 bathroom", "2 bathrooms", "3+ bathrooms", "Shared facilities", "Not sure"];
+const propertySizes = [
+  "Small property",
+  "Medium property",
+  "Large property",
+  "Commercial / larger site",
+  "Not sure",
+];
+const conditionLevels = [
+  "Light maintenance clean",
+  "Standard clean",
+  "Deep clean needed",
+  "End of tenancy level",
+  "Not sure",
+];
+const accessMethods = [
+  "Someone will be present",
+  "Key safe / lockbox",
+  "Reception / concierge",
+  "Key collection needed",
+  "To be confirmed",
+];
+const supplyOptions = [
+  "Please bring products and equipment",
+  "Products available at property",
+  "Use specific products only",
+  "To be confirmed",
+];
 
 const initialRequest = {
   name: "",
@@ -219,6 +257,15 @@ const initialRequest = {
   frequency: "One-time",
   preferredDate: "",
   address: "",
+  roomCount: "2 bedrooms",
+  bathroomCount: "1 bathroom",
+  propertySize: "Medium property",
+  currentCondition: "Standard clean",
+  accessMethod: "Someone will be present",
+  supplies: "Please bring products and equipment",
+  parkingAccess: "",
+  priorityAreas: "",
+  screeningNotes: "",
   details: "",
 };
 
@@ -484,8 +531,19 @@ function RequestServicePage() {
 
   const isSubmitting = requestStatus.state === "submitting";
   const requestSummary = useMemo(
-    () => [requestForm.service, requestForm.location, requestForm.frequency].filter(Boolean),
-    [requestForm.frequency, requestForm.location, requestForm.service],
+    () =>
+      [
+        requestForm.service,
+        requestForm.location,
+        requestForm.frequency,
+        requestForm.currentCondition,
+      ].filter(Boolean),
+    [
+      requestForm.currentCondition,
+      requestForm.frequency,
+      requestForm.location,
+      requestForm.service,
+    ],
   );
 
   function updateRequest(event) {
@@ -542,7 +600,7 @@ function RequestServicePage() {
       <PageHero
         label="Request a service"
         title="Tell Vibak what needs cleaning."
-        copy="Share the details that help us plan the visit, including the service type, location, timing, access, and the areas that matter most."
+        copy="Share the details that help us screen the job properly, including the service type, property size, condition, access, timing, and the areas that matter most."
       />
       <section className="standard-band request-intro">
         <div className="section-header">
@@ -577,8 +635,8 @@ function RequestServicePage() {
             <h3>Start with the essentials.</h3>
             <p>
               Add your service type, area, property type, preferred schedule, and
-              anything Vibak should know before confirming the plan. The more precise
-              the brief, the sharper the clean.
+              anything Vibak should know before confirming the plan. The screening
+              questions help us understand the work before the clean is arranged.
             </p>
             <div className="request-summary" aria-label="Current request summary">
               {requestSummary.map((item) => (
@@ -668,6 +726,109 @@ function RequestServicePage() {
               </label>
             </div>
 
+            <fieldset className="screening-fieldset">
+              <legend>In-depth screening</legend>
+              <p>
+                These details help Vibak understand the property, access, and cleaning
+                priorities before accepting or arranging the visit.
+              </p>
+              <div className="form-grid">
+                <label>
+                  Rooms / bedrooms
+                  <select name="roomCount" value={requestForm.roomCount} onChange={updateRequest}>
+                    {roomCounts.map((roomCount) => (
+                      <option key={roomCount}>{roomCount}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Bathrooms
+                  <select
+                    name="bathroomCount"
+                    value={requestForm.bathroomCount}
+                    onChange={updateRequest}
+                  >
+                    {bathroomCounts.map((bathroomCount) => (
+                      <option key={bathroomCount}>{bathroomCount}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Property size
+                  <select
+                    name="propertySize"
+                    value={requestForm.propertySize}
+                    onChange={updateRequest}
+                  >
+                    {propertySizes.map((propertySize) => (
+                      <option key={propertySize}>{propertySize}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Current condition
+                  <select
+                    name="currentCondition"
+                    value={requestForm.currentCondition}
+                    onChange={updateRequest}
+                  >
+                    {conditionLevels.map((condition) => (
+                      <option key={condition}>{condition}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Access method
+                  <select
+                    name="accessMethod"
+                    value={requestForm.accessMethod}
+                    onChange={updateRequest}
+                  >
+                    {accessMethods.map((accessMethod) => (
+                      <option key={accessMethod}>{accessMethod}</option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  Products and equipment
+                  <select name="supplies" value={requestForm.supplies} onChange={updateRequest}>
+                    {supplyOptions.map((supplyOption) => (
+                      <option key={supplyOption}>{supplyOption}</option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+              <label>
+                Parking or access notes
+                <input
+                  name="parkingAccess"
+                  value={requestForm.parkingAccess}
+                  onChange={updateRequest}
+                  placeholder="Parking, entry, stairs, lift, key safe, or reception details"
+                />
+              </label>
+              <label>
+                Priority areas
+                <textarea
+                  name="priorityAreas"
+                  value={requestForm.priorityAreas}
+                  onChange={updateRequest}
+                  placeholder="List the rooms, surfaces, or jobs that matter most."
+                  rows="4"
+                />
+              </label>
+              <label>
+                Pets, fragile items, or safety notes
+                <textarea
+                  name="screeningNotes"
+                  value={requestForm.screeningNotes}
+                  onChange={updateRequest}
+                  placeholder="Mention pets, alarms, delicate materials, restricted areas, or anything the cleaner should know."
+                  rows="4"
+                />
+              </label>
+            </fieldset>
+
             <label>
               Address or postcode
               <input
@@ -685,7 +846,7 @@ function RequestServicePage() {
                 name="details"
                 value={requestForm.details}
                 onChange={updateRequest}
-                placeholder="Tell us about room count, access, priorities, pets, parking, or anything else that helps."
+                placeholder="Add anything else Vibak should know before following up."
                 rows="5"
               />
             </label>

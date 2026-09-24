@@ -18,7 +18,8 @@ test("builds a Vite React app with Vibak metadata", async () => {
 });
 
 test("keeps the site on React and Express", async () => {
-  const [app, packageJson, devServer, prodServer] = await Promise.all([
+  const [htmlSource, app, packageJson, devServer, prodServer] = await Promise.all([
+    readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../src/App.jsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../server/dev.js", import.meta.url), "utf8"),
@@ -31,6 +32,9 @@ test("keeps the site on React and Express", async () => {
   assert.match(app, /Crewe, Nantwich, Northwich, and Winsford/);
   assert.match(app, /Built around careful work and clear communication/);
   assert.match(app, /We listen first, then clean with care/);
+  assert.match(app, /In-depth screening/);
+  assert.match(app, /Property size/);
+  assert.match(app, /Products and equipment/);
   assert.doesNotMatch(app, /launch-standard|No borrowed testimonials|Request concierge|New company/);
   assert.match(packageJson, /"dev": "node server\/dev\.js"/);
   assert.match(packageJson, /"express"/);
@@ -38,6 +42,7 @@ test("keeps the site on React and Express", async () => {
   assert.match(devServer, /express/);
   assert.match(devServer, /createViteServer/);
   assert.match(prodServer, /sendFile/);
+  assert.doesNotMatch(`${htmlSource}\n${app}\n${packageJson}\n${devServer}\n${prodServer}`, /openai|chatgpt|codex/i);
 });
 
 test("defines real multi-page routes", async () => {
@@ -53,4 +58,5 @@ test("defines real multi-page routes", async () => {
   assert.match(app, /function ContactPage/);
   assert.match(app, /function LaunchPanel/);
   assert.match(app, /service-detail-grid/);
+  assert.match(app, /screening-fieldset/);
 });
