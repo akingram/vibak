@@ -105,6 +105,11 @@ button {
   white-space: nowrap;
 }
 
+.menu-toggle,
+.mobile-menu-quote {
+  display: none;
+}
+
 .global-links a:hover,
 .global-links a:focus-visible,
 .global-links a.active,
@@ -1033,14 +1038,11 @@ button {
 
 @media (max-width: 920px) {
   .global-nav {
-    grid-template-columns: 1fr;
-    height: auto;
-    padding: 14px 0;
+    gap: 18px;
   }
 
   .global-links {
-    justify-content: flex-start;
-    overflow-x: auto;
+    gap: 20px;
   }
 
   .hero-stage,
@@ -1097,33 +1099,157 @@ button {
   }
 }
 
+@media (max-width: 760px) {
+  .top-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .global-nav {
+    position: relative;
+    z-index: 40;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    width: 100%;
+    min-height: 72px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-control-gray);
+    background: var(--color-gallery-white);
+  }
+
+  .global-mark {
+    min-width: 0;
+    align-items: center;
+  }
+
+  .global-mark img {
+    width: 54px;
+    height: 34px;
+  }
+
+  .global-mark span {
+    min-width: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .menu-toggle {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--color-control-gray);
+    border-radius: 999px;
+    background: var(--color-gallery-white);
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .menu-toggle:hover,
+  .menu-toggle:focus-visible {
+    border-color: var(--color-vibak-blue);
+    color: var(--color-vibak-blue);
+    outline: none;
+  }
+
+  .menu-toggle span {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    height: 2px;
+    border-radius: 99px;
+    background: currentColor;
+    transition: top 180ms ease, transform 180ms ease;
+  }
+
+  .menu-toggle span:first-child {
+    top: 16px;
+  }
+
+  .menu-toggle span:last-child {
+    top: 25px;
+  }
+
+  .menu-toggle.open span:first-child {
+    top: 21px;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle.open span:last-child {
+    top: 21px;
+    transform: rotate(-45deg);
+  }
+
+  .global-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 16px;
+    right: 16px;
+    z-index: 50;
+    display: grid;
+    align-items: stretch;
+    justify-content: stretch;
+    gap: 6px;
+    padding: 14px;
+    border: 1px solid var(--color-control-gray);
+    border-radius: var(--radius-card);
+    background: var(--color-gallery-white);
+    box-shadow: var(--shadow-subtle);
+    color: var(--color-ink);
+    white-space: normal;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+  }
+
+  .global-links.open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .global-links a:not(.pill) {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 0 10px;
+    border-radius: var(--radius-card);
+    font-size: 15px;
+  }
+
+  .global-links a:not(.pill):hover,
+  .global-links a:not(.pill):focus-visible,
+  .global-links a:not(.pill).active {
+    background: var(--color-soft-blue);
+    color: var(--color-vibak-blue);
+  }
+
+  .nav-quote {
+    display: none;
+  }
+
+  .mobile-menu-quote {
+    display: inline-flex;
+    width: 100%;
+    min-height: 42px;
+    margin-top: 6px;
+  }
+}
+
 @media (max-width: 640px) {
   .top-strip {
     display: grid;
     grid-template-columns: 1fr;
     gap: 6px;
     font-size: 12px;
-  }
-
-  .global-nav {
-    gap: 16px;
-  }
-
-  .global-mark {
-    align-items: center;
-  }
-
-  .global-links {
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    justify-content: start;
-    gap: 14px 20px;
-    overflow: visible;
-    white-space: normal;
-  }
-
-  .nav-quote {
-    width: 100%;
   }
 
   .local-nav {

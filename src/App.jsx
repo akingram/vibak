@@ -281,24 +281,58 @@ function normalizedPath() {
 }
 
 function Header({ path }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
   return (
     <>
       <div className="top-strip" aria-label="Service summary">
         <span>Professional cleaning across Cheshire East</span>
-        <span>Crewe · Nantwich · Northwich · Winsford</span>
+        <span>Crewe / Nantwich / Northwich / Winsford</span>
       </div>
 
       <nav className="global-nav" aria-label="Primary navigation">
-        <a href="/" aria-label="Vibak Cleaning Services home" className="global-mark">
+        <a
+          href="/"
+          onClick={closeMenu}
+          aria-label="Vibak Cleaning Services home"
+          className="global-mark"
+        >
           <img src="/vibak.jpeg" alt="" aria-hidden="true" />
           <span>Vibak Cleaning Services</span>
         </a>
-        <div className="global-links">
+        <button
+          className={`menu-toggle ${menuOpen ? "open" : ""}`}
+          type="button"
+          aria-controls="site-menu"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          <span></span>
+          <span></span>
+        </button>
+        <div id="site-menu" className={`global-links ${menuOpen ? "open" : ""}`}>
           {navigation.map((item) => (
-            <a className={path === item.href ? "active" : ""} href={item.href} key={item.href}>
+            <a
+              className={path === item.href ? "active" : ""}
+              href={item.href}
+              key={item.href}
+              onClick={closeMenu}
+            >
               {item.label}
             </a>
           ))}
+          <a
+            className="pill pill-blue mobile-menu-quote"
+            href="/request-service"
+            onClick={closeMenu}
+          >
+            Get a quote
+          </a>
         </div>
         <a className="pill pill-blue nav-quote" href="/request-service">
           Get a quote
