@@ -134,6 +134,12 @@ const launchPromises = [
   "Homes, offices, rentals, and move days are handled with care.",
 ];
 
+const heroBadges = [
+  "Cheshire East based",
+  "Property-specific plans",
+  "Request online anytime",
+];
+
 const commitments = [
   "Cleaning shaped around your space",
   "Professional and reliable team",
@@ -277,7 +283,12 @@ function normalizedPath() {
 function Header({ path }) {
   return (
     <>
-      <nav className="global-nav" aria-label="Global navigation">
+      <div className="top-strip" aria-label="Service summary">
+        <span>Professional cleaning across Cheshire East</span>
+        <span>Crewe · Nantwich · Northwich · Winsford</span>
+      </div>
+
+      <nav className="global-nav" aria-label="Primary navigation">
         <a href="/" aria-label="Vibak Cleaning Services home" className="global-mark">
           <img src="/vibak.jpeg" alt="" aria-hidden="true" />
           <span>Vibak Cleaning Services</span>
@@ -289,21 +300,10 @@ function Header({ path }) {
             </a>
           ))}
         </div>
-      </nav>
-
-      <header className="local-nav" aria-label="Product navigation">
-        <a className="local-title" href="/">
-          Vibak Cleaning Services
+        <a className="pill pill-blue nav-quote" href="/request-service">
+          Get a quote
         </a>
-        <div className="local-actions">
-          <a className="pill pill-outline" href="/services">
-            Explore
-          </a>
-          <a className="pill pill-blue" href="/request-service">
-            Plan a clean
-          </a>
-        </div>
-      </header>
+      </nav>
     </>
   );
 }
@@ -313,14 +313,24 @@ function Footer() {
     <footer className="footer">
       <div>
         <p className="footer-title">Vibak Cleaning Services</p>
-        <p>Local cleaning for homes, workspaces, rentals, and moving days.</p>
+        <p>Detailed cleaning for homes, workspaces, rentals, hotels, and moving days.</p>
       </div>
-      <address>
-        <span>Crewe</span>
-        <span>Nantwich</span>
-        <span>Northwich</span>
-        <span>Winsford</span>
-      </address>
+      <div className="footer-columns">
+        <div>
+          <h2>Explore</h2>
+          <a href="/services">Services</a>
+          <a href="/request-service">Request service</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <address>
+          <h2>Coverage</h2>
+          <span>Crewe</span>
+          <span>Nantwich</span>
+          <span>Northwich</span>
+          <span>Winsford</span>
+        </address>
+      </div>
     </footer>
   );
 }
@@ -391,45 +401,55 @@ function HomePage() {
   return (
     <>
       <section className="hero-stage" aria-label="Vibak Cleaning Services hero">
-        <p className="launch-label">Cleaning services across Cheshire East</p>
-        <h1>Careful cleaning for homes, lets, offices, and moving days.</h1>
+        <p className="launch-label">Cheshire East cleaning, made clearer</p>
+        <h1>Fresh spaces. Clear plans. Carefully cleaned.</h1>
         <p className="hero-copy">
-          Vibak Cleaning Services serves Crewe, Nantwich, Northwich, and Winsford
-          with flexible, detail-led cleaning for homes, tenants, landlords,
-          businesses, hospitality teams, and property managers.
+          Detailed cleaning for homes, workplaces, rental properties, hotels, and
+          move days. Share the property details, and Vibak will shape the clean
+          around the space before work begins.
         </p>
 
         <div className="hero-controls">
           <a className="pill pill-blue hero-pill" href="/request-service">
-            Start with your needs
+            Request a service
           </a>
-          <a className="text-link" href="/services">
+          <a className="pill pill-ghost hero-pill" href="/services">
             View services
           </a>
         </div>
 
-        <div className="logo-stage" aria-label="Vibak brand mark">
-          <img src="/vibak.jpeg" alt="Vibak Cleaning Services logo" />
+        <div className="hero-badges" aria-label="Vibak service highlights">
+          {heroBadges.map((badge) => (
+            <span key={badge}>{badge}</span>
+          ))}
         </div>
+      </section>
 
-        <div className="product-visual" aria-label="Professional cleaning preview">
-          <img
-            src="https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=2200&q=90"
-            alt="Pristine white kitchen presented like a premium cleaning result"
-          />
-          <aside className="price-callout" aria-label="Coverage callout">
-            <p>Cleaning shaped around your space.</p>
-            <span>Serving Crewe, Nantwich, Northwich, Winsford, and nearby communities.</span>
-            <a className="pill pill-blue" href="/request-service">
-              Request
-            </a>
-          </aside>
+      <section className="intro-split">
+        <div>
+          <p className="product-kicker">Vibak Cleaning Services</p>
+          <h2>Cleaning that is clear from the first request.</h2>
+        </div>
+        <div>
+          <p>
+            Vibak helps homeowners, tenants, landlords, hosts, business owners, and
+            property managers prepare spaces that feel fresh, presentable, and ready
+            to use.
+          </p>
+          <p>
+            Every property is different. The request form gathers the service type,
+            size, condition, access, products, parking, and priority areas so the
+            clean can be planned properly.
+          </p>
+          <a className="text-link" href="/about">
+            Meet Vibak Cleaning Services
+          </a>
         </div>
       </section>
 
       <section className="standard-band">
         <div className="section-header">
-          <h2>A better clean starts with listening.</h2>
+          <h2>A simpler route to a well-planned clean.</h2>
           <a className="text-link" href="/request-service">
             Plan your clean
           </a>
@@ -439,7 +459,7 @@ function HomePage() {
 
       <section className="highlights">
         <div className="section-header">
-          <h2>Flexible cleaning solutions for every type of space.</h2>
+          <h2>Choose the clean that fits your property.</h2>
           <a className="text-link" href="/services">
             Explore all services
           </a>
@@ -457,7 +477,7 @@ function HomePage() {
         />
         <div>
           <p className="product-kicker">Crewe, Nantwich, Northwich, Winsford</p>
-          <h2>Professional cleaning for homes, businesses, lets, hotels, and moving days.</h2>
+          <h2>Tell us what needs cleaning. Vibak will take it from there.</h2>
           <p>
             Whether you need a one-off reset, recurring domestic cleaning, hotel
             support, commercial maintenance, or a detailed tenancy handover, Vibak
@@ -466,6 +486,23 @@ function HomePage() {
           <a className="pill pill-blue story-action" href="/request-service">
             Request a service
           </a>
+        </div>
+      </section>
+
+      <section className="faq-section home-faq">
+        <div className="section-header">
+          <h2>Questions before you book?</h2>
+          <a className="text-link" href="/contact">
+            Ask a question
+          </a>
+        </div>
+        <div className="faq-list">
+          {faqs.slice(0, 4).map((faq) => (
+            <details key={faq.question}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
         </div>
       </section>
     </>
