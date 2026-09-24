@@ -79,7 +79,7 @@ const serviceDetails = [
   {
     title: "Hotel Cleaning",
     scope:
-      "Room resets, bathroom detailing, surface care, public-area support, and standards-led hospitality cleaning.",
+      "Room resets, bathroom detailing, surface care, public-area support, and careful hospitality cleaning.",
     bestFor: "Hospitality environments where presentation, hygiene, and timing matter.",
   },
   {
@@ -104,42 +104,42 @@ const serviceDetails = [
     title: "Scheduled Cleaning",
     scope:
       "Weekly, bi-weekly, monthly, or occasional cleaning with clear priorities carried from one visit to the next.",
-    bestFor: "Clients who want consistency, feedback-led improvement, and a reliable rhythm.",
+    bestFor: "Clients who want consistency, steady improvement, and a reliable rhythm.",
   },
 ];
 
 const premiumStandards = [
   {
-    title: "Founding-client care",
-    text: "Vibak is newly established, so early clients receive careful onboarding, clear expectations, and a direct feedback loop after the clean.",
+    title: "Care from the first visit",
+    text: "We take time to understand how you use the space, what needs attention, and what should feel different when we leave.",
   },
   {
-    title: "Scope before arrival",
-    text: "Service type, rooms, timing, access, supplies, priorities, and special notes are captured before the team arrives.",
+    title: "Clear plan before arrival",
+    text: "Service type, rooms, timing, access, supplies, priorities, and special notes are agreed before the clean begins.",
   },
   {
-    title: "Checklist-led detail",
-    text: "High-touch areas, kitchens, bathrooms, floors, presentation points, and handover details are worked through methodically.",
+    title: "Room-by-room focus",
+    text: "High-touch areas, kitchens, bathrooms, floors, presentation points, and handover details are worked through carefully.",
   },
   {
-    title: "Hygiene-first finish",
+    title: "Fresh, ready-to-use spaces",
     text: "The goal is a calm, hygienic, ready-to-use space for homes, offices, hotels, rentals, and commercial premises.",
   },
 ];
 
 const launchPromises = [
-  "Newly established and transparent about it.",
-  "No borrowed testimonials or inflated proof.",
-  "Client feedback shapes the standard from day one.",
-  "Every booking starts with clear expectations.",
+  "We explain what is included before the clean.",
+  "You can tell us what matters most in each room.",
+  "We listen after each visit and improve the next one.",
+  "Homes, offices, rentals, and move days are handled with care.",
 ];
 
 const commitments = [
-  "Client-centred approach",
+  "Cleaning shaped around your space",
   "Professional and reliable team",
   "Flexible service plans",
   "Wide coverage across Cheshire East",
-  "High standards of hygiene and care",
+  "Careful hygiene and attention to detail",
 ];
 
 const steps = [
@@ -156,7 +156,7 @@ const steps = [
   {
     number: "03",
     title: "Refine",
-    text: "After the clean, feedback helps improve the service rhythm for future scheduled or repeat bookings.",
+    text: "After the clean, your notes help us get future visits closer to how you like things done.",
   },
 ];
 
@@ -182,9 +182,9 @@ const faqs = [
       "Vibak serves Cheshire East communities including Crewe, Nantwich, Northwich, and Winsford.",
   },
   {
-    question: "Is Vibak newly established?",
+    question: "How does Vibak build trust with first-time clients?",
     answer:
-      "Yes. Vibak is at the beginning, which is why the service is intentionally feedback-led, transparent, and built around careful early-client care.",
+      "We keep the booking clear, agree the priorities before we arrive, and use your comments after the visit to improve the service.",
   },
   {
     question: "Can I book scheduled cleaning?",
@@ -266,7 +266,7 @@ function Footer() {
     <footer className="footer">
       <div>
         <p className="footer-title">Vibak Cleaning Services</p>
-        <p>Cheshire East&apos;s fresh, client-focused cleaning experience.</p>
+        <p>Local cleaning for homes, workspaces, rentals, and moving days.</p>
       </div>
       <address>
         <span>Crewe</span>
@@ -321,14 +321,14 @@ function ServiceCards() {
 
 function LaunchPanel() {
   return (
-    <section className="launch-panel" aria-label="Vibak launch promise">
+    <section className="launch-panel" aria-label="Vibak service approach">
       <div>
-        <p className="product-kicker">Honest from day one</p>
-        <h2>New company. Serious operating standard.</h2>
+        <p className="product-kicker">How we work</p>
+        <h2>Built around careful work and clear communication.</h2>
         <p>
-          Vibak is not using borrowed proof or manufactured reviews. The standard is
-          built through professional preparation, clear communication, careful
-          cleaning, and client feedback after real bookings.
+          Vibak is building its reputation one clean at a time. Every job starts
+          with understanding the space, agreeing the priorities, and leaving
+          things fresh, tidy, and ready to use.
         </p>
       </div>
       <ul className="promise-list">
@@ -344,8 +344,8 @@ function HomePage() {
   return (
     <>
       <section className="hero-stage" aria-label="Vibak Cleaning Services hero">
-        <p className="launch-label">Newly established in Cheshire East</p>
-        <h1>Professional cleaning with a launch-standard level of care.</h1>
+        <p className="launch-label">Cleaning services across Cheshire East</p>
+        <h1>Careful cleaning for homes, lets, offices, and moving days.</h1>
         <p className="hero-copy">
           Vibak Cleaning Services serves Crewe, Nantwich, Northwich, and Winsford
           with flexible, detail-led cleaning for homes, tenants, landlords,
@@ -371,7 +371,7 @@ function HomePage() {
             alt="Pristine white kitchen presented like a premium cleaning result"
           />
           <aside className="price-callout" aria-label="Coverage callout">
-            <p>New company. Serious standard.</p>
+            <p>Cleaning shaped around your space.</p>
             <span>Serving Crewe, Nantwich, Northwich, Winsford, and nearby communities.</span>
             <a className="pill pill-blue" href="/request-service">
               Request
@@ -382,7 +382,7 @@ function HomePage() {
 
       <section className="standard-band">
         <div className="section-header">
-          <h2>Top-tier service starts before the first clean.</h2>
+          <h2>A better clean starts with listening.</h2>
           <a className="text-link" href="/request-service">
             Plan your clean
           </a>
@@ -455,7 +455,7 @@ function ServicesPage() {
 
       <section className="service-detail-section">
         <div className="section-header">
-          <h2>Every service has a brief, a focus, and a finish standard.</h2>
+          <h2>Every service has a clear brief, practical priorities, and a clean finish.</h2>
           <a className="text-link" href="/request-service">
             Request details
           </a>
@@ -541,12 +541,12 @@ function RequestServicePage() {
     <>
       <PageHero
         label="Request a service"
-        title="Tell Vibak what you need cleaned, clearly and quickly."
-        copy="Send the essentials now. Your request is saved locally on this server so the team can review the service type, location, timing, and details before following up."
+        title="Tell Vibak what needs cleaning."
+        copy="Share the details that help us plan the visit, including the service type, location, timing, access, and the areas that matter most."
       />
       <section className="standard-band request-intro">
         <div className="section-header">
-          <h2>A better clean starts with a better brief.</h2>
+          <h2>Share the details once, so the clean starts right.</h2>
           <a className="text-link" href="/services">
             Compare services
           </a>
@@ -556,7 +556,7 @@ function RequestServicePage() {
 
       <section className="process-band">
         <div className="section-header">
-          <h2>A simple process built around satisfaction.</h2>
+          <h2>Simple steps, clear expectations.</h2>
           <a className="text-link" href="/contact">
             Common questions
           </a>
@@ -573,7 +573,7 @@ function RequestServicePage() {
 
         <div className="request-panel" aria-label="Request a cleaning service">
           <div className="request-copy">
-            <p className="product-kicker">Request concierge</p>
+            <p className="product-kicker">Service request</p>
             <h3>Start with the essentials.</h3>
             <p>
               Add your service type, area, property type, preferred schedule, and
@@ -716,8 +716,8 @@ function AboutPage() {
     <>
       <PageHero
         label="About Vibak"
-        title="A new cleaning company built around client feedback."
-        copy="Vibak Cleaning Services is starting with focus: clear standards, careful communication, and a commitment to improve through real client feedback."
+        title="Local cleaning shaped around real homes and workplaces."
+        copy="Vibak Cleaning Services is built around clear communication, careful work, and practical cleaning plans for each space."
         actions={
           <a className="pill pill-blue hero-pill" href="/request-service">
             Request a service
@@ -727,7 +727,7 @@ function AboutPage() {
       <section className="editorial-section">
         <div className="editorial-copy">
           <p className="product-kicker">Our commitment</p>
-          <h2>Your feedback shapes the service.</h2>
+          <h2>We listen first, then clean with care.</h2>
           <p>
             A clean environment supports comfort, health, and productivity. Vibak
             approaches every request with high-quality products, modern equipment,

@@ -26,11 +26,12 @@ test("keeps the site on React and Express", async () => {
   ]);
 
   assert.match(app, /Vibak Cleaning Services/);
-  assert.match(app, /Professional cleaning with a launch-standard level of care/);
+  assert.match(app, /Careful cleaning for homes, lets, offices, and moving days/);
   assert.match(app, /Domestic Cleaning/);
   assert.match(app, /Crewe, Nantwich, Northwich, and Winsford/);
-  assert.match(app, /No borrowed testimonials or inflated proof/);
-  assert.match(app, /Founding-client care/);
+  assert.match(app, /Built around careful work and clear communication/);
+  assert.match(app, /We listen first, then clean with care/);
+  assert.doesNotMatch(app, /launch-standard|No borrowed testimonials|Request concierge|New company/);
   assert.match(packageJson, /"dev": "node server\/dev\.js"/);
   assert.match(packageJson, /"express"/);
   assert.doesNotMatch(packageJson, /next|vinext|wrangler|drizzle/i);
