@@ -27,7 +27,7 @@ async function render() {
   );
 }
 
-test("server-renders the premium cleaning homepage", async () => {
+test("server-renders the gallery-style cleaning homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
@@ -36,15 +36,14 @@ test("server-renders the premium cleaning homepage", async () => {
   assert.doesNotMatch(html, developmentPreviewMeta);
   assert.match(
     html,
-    /<title>Made Simple Cleans \| Professional Cleaning Across East London<\/title>/i,
+    /<title>Vibak Cleaning Services \| Professional Cleaning in Cheshire East<\/title>/i,
   );
-  assert.match(html, /Made Simple Cleans/);
-  assert.match(html, /Signature home cleaning/);
-  assert.match(html, /End of tenancy/);
-  assert.match(html, /Airbnb and short lets/);
-  assert.match(html, /Commercial spaces/);
-  assert.match(html, /Madesimplecleans@gmail\.com/);
-  assert.match(html, /\+44 7538 363193/);
+  assert.match(html, /Vibak Cleaning Services/);
+  assert.match(html, /Client-focused cleaning that listens first/);
+  assert.match(html, /Domestic Cleaning/);
+  assert.match(html, /Office Cleaning/);
+  assert.match(html, /Airbnb &amp; Short-Term Let Cleaning/);
+  assert.match(html, /Crewe, Nantwich, Northwich, and Winsford/);
   assert.match(html, /og\.png/);
   assert.doesNotMatch(html, /SkeletonPreview|react-loading-skeleton|codex-preview/);
 });
@@ -56,7 +55,8 @@ test("does not ship starter preview scaffolding", async () => {
     readFile(new URL("../package.json", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Made Simple Cleans/);
+  assert.match(page, /Vibak Cleaning Services/);
+  assert.match(page, /Cheshire East/);
   assert.match(layout, /openGraph/);
   assert.doesNotMatch(page, /_sites-preview|SkeletonPreview|codex-preview/);
   assert.doesNotMatch(layout, /_sites-preview|Starter Project|codex-preview/);

@@ -1,271 +1,263 @@
 /* eslint-disable @next/next/no-img-element */
 
-const services = [
+const anchors = ["Services", "Commitment", "Booking", "Questions"];
+
+const featuredServices = [
   {
-    title: "Signature home cleaning",
+    label: "Homes",
+    title: "Domestic cleaning",
     description:
-      "Recurring weekly, fortnightly, and monthly resets for homes that need consistent, careful upkeep.",
+      "Fresh, organised, and welcoming home cleaning shaped around your schedule and feedback.",
     image:
-      "https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=1200&q=82",
-    alt: "Bright contemporary kitchen with polished stone countertops",
-    detail: "Dusting, floors, bathrooms, kitchens, bedrooms",
+      "https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=1400&q=86",
+    alt: "Bright white kitchen with polished stone worktop",
   },
   {
-    title: "End of tenancy",
+    label: "Workplaces",
+    title: "Office and commercial cleaning",
     description:
-      "Inventory-ready cleaning for move-outs, landlord handovers, and deposit-sensitive finishes.",
+      "Reliable cleaning for productive workplaces, business premises, and shared environments.",
     image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=82",
-    alt: "Clean modern apartment living room with warm daylight",
-    detail: "Deep surfaces, appliances, fixtures, skirting",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=86",
+    alt: "Clean modern office with desks and daylight",
   },
   {
-    title: "Airbnb and short lets",
+    label: "Hospitality",
+    title: "Airbnb, hotels and short lets",
     description:
-      "Fast, reliable turnarounds with linen-ready presentation and guest-first attention to detail.",
+      "Guest-ready cleaning for rental properties and hospitality settings where presentation matters.",
     image:
-      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200&q=82",
-    alt: "Fresh bedroom prepared for guest arrival",
-    detail: "Checklists, staging, essentials, schedules",
-  },
-  {
-    title: "Commercial spaces",
-    description:
-      "Smart, low-disruption office and studio cleaning for teams that want calm, hygienic workspaces.",
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=82",
-    alt: "Orderly modern office with clean desks and natural light",
-    detail: "Desks, shared areas, washrooms, touchpoints",
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1400&q=86",
+    alt: "Freshly made bed in a calm guest bedroom",
   },
 ];
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Share the space",
-    text: "Send the property type, size, postcode, and what needs the most attention.",
-  },
-  {
-    step: "02",
-    title: "Receive a tailored quote",
-    text: "We match the right team, products, timing, and finish for the job.",
-  },
-  {
-    step: "03",
-    title: "Walk into a reset",
-    text: "Your cleaner arrives briefed, prepared, and focused on the details that matter.",
-  },
+const allServices = [
+  "Domestic Cleaning",
+  "Office Cleaning",
+  "Airbnb & Short-Term Let Cleaning",
+  "Hotel Cleaning",
+  "Commercial Cleaning",
+  "End of Tenancy Cleaning",
+  "Move-In & Move-Out Cleaning",
+  "Scheduled Cleaning",
 ];
 
-const standards = [
-  "Background-checked cleaning professionals",
-  "Eco-conscious products available on request",
-  "Transparent quotes before work begins",
-  "Flexible one-off and recurring appointments",
+const commitments = [
+  "Client-centred approach",
+  "Professional and reliable team",
+  "Flexible service plans",
+  "Wide coverage across Cheshire East",
+  "High standards of hygiene and care",
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Tell us what matters",
+    text: "Share your property type, location, preferred schedule, and the details you value most.",
+  },
+  {
+    number: "02",
+    title: "We shape the service",
+    text: "Your requirements and feedback guide the plan, products, equipment, and cleaning priorities.",
+  },
+  {
+    number: "03",
+    title: "Expect a better standard",
+    text: "The team works toward reliable, satisfactory results and continuous improvement after every clean.",
+  },
 ];
 
 const faqs = [
   {
-    question: "Do you bring cleaning supplies?",
+    question: "Where does Vibak Cleaning Services operate?",
     answer:
-      "Yes. The team can bring professional supplies and equipment, or use preferred products already at the property.",
+      "Vibak serves Cheshire East communities including Crewe, Nantwich, Northwich, and Winsford.",
   },
   {
-    question: "Which areas do you cover?",
+    question: "Can I book scheduled cleaning?",
     answer:
-      "The service focuses on East London and nearby neighbourhoods, with quotes confirmed by postcode.",
+      "Yes. Weekly, bi-weekly, monthly, and one-time cleaning options can be arranged around your needs.",
   },
   {
-    question: "Can you handle same-week bookings?",
+    question: "Do you handle tenancy and move-out cleaning?",
     answer:
-      "Often, yes. Availability depends on the scope of the clean and the size of the property.",
-  },
-  {
-    question: "Do you clean after builders or renovations?",
-    answer:
-      "Yes. After-builders work is quoted around dust level, access, room count, and the finish required.",
+      "Yes. End of tenancy, move-in, and move-out cleaning are part of the service range.",
   },
 ];
 
 export default function Home() {
   return (
     <main className="site-shell">
-      <section className="hero" id="top" aria-label="Made Simple Cleans">
-        <header className="nav-bar">
-          <a className="brand" href="#top" aria-label="Made Simple Cleans home">
-            <span className="brand-mark" aria-hidden="true">
-              MS
-            </span>
-            <span>
-              <strong>Made Simple</strong>
-              <small>Cleans</small>
-            </span>
+      <nav className="global-nav" aria-label="Global navigation">
+        <a href="#top" aria-label="Vibak Cleaning Services home" className="global-mark">
+          <img src="/vibak.jpeg" alt="" aria-hidden="true" />
+          <span>Vibak Cleaning Services</span>
+        </a>
+        <div className="global-links">
+          <a href="#services">Services</a>
+          <a href="#commitment">Commitment</a>
+          <a href="#booking">Booking</a>
+          <a href="#questions">Questions</a>
+        </div>
+      </nav>
+
+      <header className="local-nav" aria-label="Product navigation">
+        <a className="local-title" href="#top">
+          Vibak Cleaning Services
+        </a>
+        <div className="local-actions">
+          <a className="pill pill-outline" href="#services">
+            Explore
           </a>
-
-          <nav className="nav-links" aria-label="Primary navigation">
-            <a href="#services">Services</a>
-            <a href="#standard">Standard</a>
-            <a href="#booking">Booking</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-
-          <a className="nav-cta" href="tel:+447538363193">
-            Call now
+          <a className="pill pill-blue" href="#booking">
+            Plan a clean
           </a>
-        </header>
-
-        <div className="hero-content">
-          <p className="eyebrow">East London residential and commercial cleaning</p>
-          <h1>Made Simple Cleans</h1>
-          <p className="hero-subtitle">
-            A more considered cleaning service for homes, short lets, offices,
-            and handovers that need to feel calm, polished, and unmistakably cared for.
-          </p>
-
-          <div className="hero-actions" aria-label="Primary actions">
-            <a className="button button-primary" href="mailto:Madesimplecleans@gmail.com">
-              Get a tailored quote
-              <span aria-hidden="true">-&gt;</span>
-            </a>
-            <a className="button button-secondary" href="#services">
-              Explore services
-            </a>
-          </div>
         </div>
+      </header>
 
-        <div className="hero-proof" aria-label="Service highlights">
-          <p>
-            <strong>4.9/5</strong>
-            Client satisfaction
-          </p>
-          <p>
-            <strong>24-48h</strong>
-            Quote response
-          </p>
-          <p>
-            <strong>7 days</strong>
-            Flexible bookings
-          </p>
-        </div>
-      </section>
-
-      <section className="intro-band" aria-label="Premium cleaning promise">
-        <div>
-          <p className="section-kicker">A cleaner, quieter standard</p>
-          <h2>Designed for the way modern London homes and workplaces are used.</h2>
-        </div>
-        <p>
-          Every visit is structured around clear expectations, careful sequencing,
-          and a finish that reads as intentional rather than rushed. It is the
-          difference between tidy and genuinely restored.
+      <section className="hero-stage" id="top" aria-label="Vibak Cleaning Services hero">
+        <p className="launch-label">Cheshire East&apos;s new standard in professional cleaning</p>
+        <h1>Client-focused cleaning that listens first.</h1>
+        <p className="hero-copy">
+          Vibak Cleaning Services is a newly established cleaning company serving
+          Crewe, Nantwich, Northwich, and Winsford with reliable, flexible, and
+          detail-led cleaning for homes, tenants, landlords, businesses, and property managers.
         </p>
-      </section>
 
-      <section className="services-section" id="services">
-        <div className="section-heading">
-          <p className="section-kicker">Services</p>
-          <h2>Housekeeping discipline, hospitality-level presentation.</h2>
+        <div className="hero-controls">
+          <a className="pill pill-blue hero-pill" href="#booking">
+            Start with your needs
+          </a>
+          <a className="text-link" href="#services">
+            View services
+          </a>
         </div>
 
-        <div className="service-grid">
-          {services.map((service) => (
-            <article className="service-card" key={service.title}>
+        <div className="logo-stage" aria-label="Vibak brand mark">
+          <img src="/vibak.jpeg" alt="Vibak Cleaning Services logo" />
+        </div>
+
+        <div className="product-visual" aria-label="Professional cleaning preview">
+          <img
+            src="https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=2200&q=90"
+            alt="Pristine white kitchen presented like a premium cleaning result"
+          />
+          <aside className="price-callout" aria-label="Coverage callout">
+            <p>Serving Cheshire East</p>
+            <span>Crewe, Nantwich, Northwich, Winsford and nearby communities.</span>
+            <a className="pill pill-blue" href="#booking">
+              Book
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <nav className="anchor-nav" aria-label="Page sections">
+        {anchors.map((anchor) => (
+          <a key={anchor} href={`#${anchor.toLowerCase()}`}>
+            {anchor}
+          </a>
+        ))}
+      </nav>
+
+      <section className="highlights" id="services">
+        <div className="section-header">
+          <h2>Flexible cleaning solutions for every type of space.</h2>
+          <a className="text-link" href="#booking">
+            Build your plan
+          </a>
+        </div>
+
+        <div className="feature-row">
+          {featuredServices.map((service) => (
+            <article className="feature-card" key={service.title}>
+              <p>{service.label}</p>
+              <h3>{service.title}</h3>
               <img src={service.image} alt={service.alt} loading="lazy" />
-              <div className="service-card-body">
-                <p>{service.detail}</p>
-                <h3>{service.title}</h3>
-                <span>{service.description}</span>
-              </div>
+              <span>{service.description}</span>
             </article>
+          ))}
+        </div>
+
+        <div className="service-index" aria-label="All Vibak cleaning services">
+          {allServices.map((service) => (
+            <span key={service}>{service}</span>
           ))}
         </div>
       </section>
 
-      <section className="standard-section" id="standard">
-        <div className="standard-copy">
-          <p className="section-kicker">The Made Simple standard</p>
-          <h2>Professional, discreet, and tuned to the property.</h2>
+      <section className="editorial-section" id="commitment">
+        <div className="editorial-copy">
+          <p className="product-kicker">Our commitment</p>
+          <h2>Your feedback shapes the service.</h2>
           <p>
-            The experience is built around punctual communication, practical
-            checklists, and a calm visual finish. Kitchens are degreased with
-            care, bathrooms are detailed, floors are brought back to life, and
-            surfaces are reset for daily living or guest arrival.
+            We believe a clean environment enhances comfort, health, and productivity.
+            Vibak cleaners use high-quality products and modern equipment to leave
+            every space spotless, hygienic, and welcoming.
           </p>
-
-          <div className="standard-list">
-            {standards.map((standard) => (
-              <p key={standard}>
-                <span aria-hidden="true">+</span>
-                {standard}
-              </p>
+          <div className="quality-list" aria-label="Why choose Vibak">
+            {commitments.map((item) => (
+              <span key={item}>{item}</span>
             ))}
           </div>
         </div>
-
-        <figure className="standard-image">
-          <img
-            src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=82"
-            alt="Minimal bathroom with clean fixtures and bright tile"
-            loading="lazy"
-          />
-          <figcaption>
-            Detail-led bathroom, kitchen, appliance, and high-touch area cleaning.
-          </figcaption>
-        </figure>
+        <img
+          className="editorial-image"
+          src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=86"
+          alt="Minimal bathroom with clean tile, sink, and mirror"
+          loading="lazy"
+        />
       </section>
 
-      <section className="booking-section" id="booking">
-        <div className="section-heading">
-          <p className="section-kicker">Booking</p>
-          <h2>Simple to arrange. Meticulous once inside.</h2>
+      <section className="process-band" id="booking">
+        <div className="section-header">
+          <h2>A simple process built around satisfaction.</h2>
+          <a className="text-link" href="#questions">
+            Common questions
+          </a>
         </div>
-
         <div className="process-grid">
-          {processSteps.map((item) => (
-            <article className="process-card" key={item.step}>
-              <span>{item.step}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+          {steps.map((step) => (
+            <article className="process-card" key={step.number}>
+              <span>{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
             </article>
           ))}
         </div>
+      </section>
 
-        <div className="quote-panel" aria-label="Request a quote">
-          <div>
-            <p className="section-kicker">Ready for a quote?</p>
-            <h2>Tell us what needs cleaning and when you need it done.</h2>
-          </div>
-          <div className="quote-actions">
-            <a className="button button-primary" href="mailto:Madesimplecleans@gmail.com">
-              Email the team
-              <span aria-hidden="true">-&gt;</span>
-            </a>
-            <a className="button button-outline" href="tel:+447538363193">
-              +44 7538 363193
-            </a>
-          </div>
+      <section className="wide-story">
+        <img
+          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=86"
+          alt="Clean contemporary home interior with pale sofa and daylight"
+          loading="lazy"
+        />
+        <div>
+          <p className="product-kicker">Crewe, Nantwich, Northwich, Winsford</p>
+          <h2>Professional cleaning for homes, businesses, lets, hotels, and moving days.</h2>
+          <p>
+            Whether you need domestic cleaning, scheduled maintenance, hotel support,
+            commercial cleaning, or a detailed tenancy handover, Vibak builds the
+            cleaning plan around your environment and expectations.
+          </p>
         </div>
       </section>
 
-      <section className="testimonial-section" aria-label="Client quote">
-        <blockquote>
-          &quot;The finish felt considered in every room. It was not just clean; it felt
-          reset, calm, and ready to enjoy.&quot;
-        </blockquote>
-        <p>Private residential client, East London</p>
-      </section>
-
-      <section className="faq-section" id="faq">
-        <div className="section-heading">
-          <p className="section-kicker">Questions</p>
-          <h2>Everything important, answered plainly.</h2>
+      <section className="faq-section" id="questions">
+        <div className="section-header">
+          <h2>Questions, answered simply.</h2>
+          <a className="text-link" href="#booking">
+            Plan a clean
+          </a>
         </div>
-
         <div className="faq-list">
-          {faqs.map((item) => (
-            <details key={item.question}>
-              <summary>{item.question}</summary>
-              <p>{item.answer}</p>
+          {faqs.map((faq) => (
+            <details key={faq.question}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
             </details>
           ))}
         </div>
@@ -273,22 +265,14 @@ export default function Home() {
 
       <footer className="footer">
         <div>
-          <a className="brand footer-brand" href="#top" aria-label="Made Simple Cleans home">
-            <span className="brand-mark" aria-hidden="true">
-              MS
-            </span>
-            <span>
-              <strong>Made Simple</strong>
-              <small>Cleans</small>
-            </span>
-          </a>
-          <p>Professional cleaning across East London for homes, lets, offices, and move-outs.</p>
+          <p className="footer-title">Vibak Cleaning Services</p>
+          <p>Cheshire East&apos;s fresh, client-focused cleaning experience.</p>
         </div>
-
         <address>
-          <a href="tel:+447538363193">+44 7538 363193</a>
-          <a href="mailto:Madesimplecleans@gmail.com">Madesimplecleans@gmail.com</a>
-          <span>East London, United Kingdom</span>
+          <span>Crewe</span>
+          <span>Nantwich</span>
+          <span>Northwich</span>
+          <span>Winsford</span>
         </address>
       </footer>
     </main>

@@ -9,18 +9,18 @@ const siteUrl = new URL(
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Made Simple Cleans | Professional Cleaning Across East London",
-    template: "%s | Made Simple Cleans",
+    default: "Vibak Cleaning Services | Professional Cleaning in Cheshire East",
+    template: "%s | Vibak Cleaning Services",
   },
   description:
-    "Premium home, Airbnb, end-of-tenancy, and commercial cleaning across East London.",
+    "Client-focused domestic, office, Airbnb, hotel, commercial, and tenancy cleaning across Cheshire East.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
   openGraph: {
-    title: "Made Simple Cleans",
-    description: "Professional cleaning across East London.",
+    title: "Vibak Cleaning Services",
+    description: "Cheshire East's new standard in professional cleaning.",
     url: "/",
     siteName: "Made Simple Cleans",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1792,
         height: 1024,
-        alt: "Made Simple Cleans social preview",
+        alt: "Vibak Cleaning Services social preview",
       },
     ],
     locale: "en_GB",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Made Simple Cleans",
-    description: "Professional cleaning across East London.",
+    title: "Vibak Cleaning Services",
+    description: "Professional cleaning across Cheshire East.",
     images: ["/og.png"],
   },
 };
