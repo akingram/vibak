@@ -43,9 +43,11 @@ test("keeps the site on React and Express", async () => {
   assert.match(app, /In-depth screening/);
   assert.match(app, /Property size/);
   assert.match(app, /Products and equipment/);
+  assert.match(app, /brand-copy/);
   assert.match(app, /menu-toggle/);
   assert.match(app, /aria-controls="site-menu"/);
   assert.match(app, /mobile-menu-quote/);
+  assert.doesNotMatch(app, /hero-logo-card/);
   assert.doesNotMatch(app, /launch-standard|No borrowed testimonials|Request concierge|New company/);
   assert.match(packageJson, /"dev": "node server\/dev\.js"/);
   assert.match(packageJson, /"express"/);

@@ -89,6 +89,27 @@ button {
   font-weight: 600;
 }
 
+.brand-copy {
+  display: grid;
+  gap: 2px;
+  line-height: 1.05;
+}
+
+.brand-copy strong {
+  color: var(--color-vibak-blue);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.brand-copy small {
+  color: var(--color-ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
 .global-mark img {
   width: 76px;
   height: 44px;
@@ -457,6 +478,7 @@ button {
   padding: 34px;
   border-radius: var(--radius-card);
   background: var(--color-vibak-blue);
+  color: #ffffff;
 }
 
 .home-cta-panel .product-kicker,
@@ -498,24 +520,6 @@ button {
   object-fit: cover;
   object-position: center;
   box-shadow: 0 26px 90px rgba(4, 15, 35, 0.24);
-}
-
-.hero-logo-card {
-  position: absolute;
-  left: 28px;
-  bottom: 28px;
-  width: min(250px, calc(100% - 56px));
-  padding: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.54);
-  border-radius: var(--radius-card);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow-subtle);
-}
-
-.hero-logo-card img {
-  width: 100%;
-  max-height: 86px;
-  object-fit: contain;
 }
 
 .reference-hero-copy {
@@ -1762,13 +1766,6 @@ button {
     height: 320px;
   }
 
-  .hero-logo-card {
-    left: 14px;
-    bottom: 14px;
-    width: min(210px, calc(100% - 28px));
-    padding: 10px;
-  }
-
   .hero-stage h1,
   .page-hero h1 {
     width: min(300px, 100%);
@@ -1996,5 +1993,343 @@ button {
   .wide-story h2,
   .launch-panel h2 {
     font-size: 26px;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    font-size: 17px;
+  }
+
+  .top-strip {
+    gap: 3px;
+    min-height: 44px;
+    padding: 8px 18px;
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .global-nav {
+    position: sticky;
+    top: 0;
+    min-height: 86px;
+    padding: 12px 18px;
+    gap: 14px;
+    box-shadow: 0 1px 0 rgba(29, 29, 31, 0.08);
+  }
+
+  .global-mark {
+    gap: 12px;
+  }
+
+  .global-mark img {
+    width: 76px;
+    height: 50px;
+  }
+
+  .brand-copy strong {
+    font-size: 21px;
+    line-height: 1;
+  }
+
+  .brand-copy small {
+    font-size: 14px;
+    line-height: 1.15;
+  }
+
+  .menu-toggle {
+    width: 52px;
+    height: 52px;
+    border-width: 2px;
+  }
+
+  .menu-toggle span {
+    left: 14px;
+    right: 14px;
+    height: 3px;
+  }
+
+  .menu-toggle span:first-child {
+    top: 18px;
+  }
+
+  .menu-toggle span:last-child {
+    top: 29px;
+  }
+
+  .menu-toggle.open span:first-child,
+  .menu-toggle.open span:last-child {
+    top: 24px;
+  }
+
+  .global-links {
+    top: calc(100% + 10px);
+    left: 18px;
+    right: 18px;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .global-links a:not(.pill) {
+    min-height: 54px;
+    padding: 0 14px;
+    font-size: 17px;
+    font-weight: 650;
+  }
+
+  .mobile-menu-quote {
+    min-height: 54px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stage,
+  .page-hero,
+  .reference-hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .reference-hero {
+    padding-top: 26px;
+    padding-bottom: 46px;
+    gap: 24px;
+  }
+
+  .reference-hero-media,
+  .reference-hero-media > img {
+    height: 260px;
+  }
+
+  .hero-stage h1,
+  .page-hero h1,
+  .reference-hero-copy h1 {
+    width: 100%;
+    max-width: none;
+    font-size: 40px;
+    line-height: 1.08;
+  }
+
+  .hero-copy,
+  .reference-hero-copy .hero-copy {
+    width: 100%;
+    max-width: none;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .launch-label,
+  .product-kicker {
+    max-width: none;
+    font-size: 16px;
+  }
+
+  .pill,
+  .hero-pill,
+  .text-link {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  .hero-controls {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .hero-badges {
+    gap: 10px;
+  }
+
+  .hero-badges span {
+    font-size: 15px;
+  }
+
+  .intro-split,
+  .reference-intro,
+  .launch-panel,
+  .editorial-section,
+  .wide-story {
+    width: min(100% - 36px, 1180px);
+  }
+
+  .intro-split p:not(.product-kicker),
+  .editorial-copy > p:not(.product-kicker),
+  .wide-story p,
+  .launch-panel p:not(.product-kicker),
+  .quote-split-band p:not(.product-kicker),
+  .faq-list p,
+  .coverage-card p,
+  .contact-choice-card p,
+  .reference-service-card p,
+  .process-card p {
+    font-size: 17px;
+    line-height: 1.58;
+  }
+
+  .intro-split h2,
+  .section-header h2,
+  .editorial-copy h2,
+  .wide-story h2,
+  .launch-panel h2,
+  .quote-split-band h2,
+  .home-cta-panel h2,
+  .home-quick-copy h2,
+  .compact-header h2 {
+    width: 100%;
+    max-width: none;
+    font-size: 32px;
+    line-height: 1.12;
+  }
+
+  .section-header {
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .reference-service-card,
+  .process-card,
+  .coverage-card,
+  .contact-choice-card,
+  .standard-card,
+  .faq-list details,
+  .request-panel {
+    border-radius: 10px;
+  }
+
+  .reference-service-card img {
+    height: 190px;
+  }
+
+  .reference-service-card div,
+  .process-card,
+  .coverage-card,
+  .contact-choice-card {
+    padding: 20px;
+  }
+
+  .reference-service-card h3,
+  .contact-choice-card h3,
+  .coverage-card h3 {
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .process-card {
+    min-height: auto;
+  }
+
+  .process-card h3 {
+    max-width: none;
+    margin-top: 26px;
+    font-size: 28px;
+  }
+
+  .product-visual img {
+    height: 300px;
+  }
+
+  .quote-split-band,
+  .home-cta-panel {
+    width: min(100% - 36px, 1180px);
+    padding: 24px 20px;
+  }
+
+  .quote-actions {
+    display: grid;
+  }
+
+  .quote-actions .text-link {
+    justify-content: center;
+    color: inherit;
+  }
+
+  .request-panel {
+    padding: 18px;
+  }
+
+  .request-copy h3 {
+    max-width: none;
+    font-size: 34px;
+  }
+
+  .request-summary span {
+    font-size: 13px;
+  }
+
+  .request-form label {
+    font-size: 14px;
+  }
+
+  .request-form input,
+  .request-form select,
+  .request-form textarea {
+    min-height: 54px;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .screening-fieldset {
+    padding: 18px 14px;
+  }
+
+  .screening-fieldset legend {
+    font-size: 19px;
+  }
+
+  .faq-list summary {
+    min-height: 64px;
+    padding: 20px;
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  .faq-list p {
+    padding: 0 20px 22px;
+  }
+
+  .footer {
+    padding: 42px 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .top-strip span:first-child {
+    font-weight: 700;
+  }
+
+  .global-mark img {
+    width: 68px;
+    height: 46px;
+  }
+
+  .brand-copy strong {
+    font-size: 19px;
+  }
+
+  .brand-copy small {
+    font-size: 13px;
+  }
+
+  .hero-stage h1,
+  .page-hero h1,
+  .reference-hero-copy h1 {
+    font-size: 36px;
+  }
+
+  .reference-hero-media,
+  .reference-hero-media > img {
+    height: 230px;
+  }
+
+  .intro-split h2,
+  .section-header h2,
+  .editorial-copy h2,
+  .wide-story h2,
+  .launch-panel h2,
+  .quote-split-band h2,
+  .home-cta-panel h2 {
+    font-size: 30px;
   }
 }

@@ -369,7 +369,10 @@ function Header({ path }) {
           className="global-mark"
         >
           <img src="/vibak.jpeg" alt="" aria-hidden="true" />
-          <span>Vibak Cleaning Services</span>
+          <span className="brand-copy">
+            <strong>Vibak</strong>
+            <small>Cleaning Services</small>
+          </span>
         </a>
         <button
           className={`menu-toggle ${menuOpen ? "open" : ""}`}
@@ -531,9 +534,6 @@ function HomePage() {
             src="https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=1600&q=90"
             alt="Bright clean kitchen with polished worktops"
           />
-          <div className="hero-logo-card">
-            <img src="/vibak.jpeg" alt="Vibak Cleaning Services" />
-          </div>
         </div>
 
         <div className="reference-hero-copy">
