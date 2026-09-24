@@ -542,6 +542,9 @@ function HomePage() {
             <a className="pill pill-blue hero-pill" href="/request-service">
               Request a service
             </a>
+            <a className="pill pill-light hero-pill" href={contactPhoneHref}>
+              {contactPhone}
+            </a>
             <a className="pill pill-ghost hero-pill" href="/services">
               View services
             </a>
