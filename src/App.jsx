@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 const anchors = ["Services", "Commitment", "Booking", "Questions"];
 
 const featuredServices = [
@@ -87,7 +85,7 @@ const faqs = [
   },
 ];
 
-export default function Home() {
+export default function App() {
   return (
     <main className="site-shell">
       <nav className="global-nav" aria-label="Global navigation">
