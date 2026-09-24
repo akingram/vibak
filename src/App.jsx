@@ -163,19 +163,19 @@ const steps = [
 const requestChecklist = [
   {
     title: "Service brief",
-    text: "Tell us what type of clean you need, where the property is, and what outcome you want.",
+    text: "Tell us the clean you need, the location, and the result you want.",
   },
   {
     title: "Priority areas",
-    text: "Mention bathrooms, kitchens, guest rooms, handover details, access needs, or time-sensitive spaces.",
+    text: "Mention rooms, access needs, handover details, or time-sensitive spaces.",
   },
   {
     title: "Preferred rhythm",
-    text: "Choose one-time, weekly, bi-weekly, monthly, or let Vibak help shape a suitable schedule.",
+    text: "Choose one-time, weekly, bi-weekly, monthly, or ask us to help.",
   },
   {
     title: "In-depth screening",
-    text: "Add property size, condition, access, products, parking, and priority areas before the clean is arranged.",
+    text: "Add size, condition, access, products, parking, and priority areas.",
   },
 ];
 
@@ -599,12 +599,12 @@ function RequestServicePage() {
     <>
       <PageHero
         label="Request a service"
-        title="Tell Vibak what needs cleaning."
-        copy="Share the details that help us screen the job properly, including the service type, property size, condition, access, timing, and the areas that matter most."
+        title="Request a clean."
+        copy="Tell us the service, property, access, timing, and priority areas so Vibak can plan the visit properly."
       />
       <section className="standard-band request-intro">
         <div className="section-header">
-          <h2>Share the details once, so the clean starts right.</h2>
+          <h2>Share the details first.</h2>
           <a className="text-link" href="/services">
             Compare services
           </a>

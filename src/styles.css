@@ -32,6 +32,7 @@ body {
   font-family: var(--font-text);
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
+  overflow-x: hidden;
 }
 
 a {
@@ -206,6 +207,7 @@ button {
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: 0;
+  overflow-wrap: break-word;
 }
 
 .hero-copy {
@@ -334,6 +336,7 @@ button {
   font-weight: 600;
   line-height: 1.07;
   letter-spacing: 0;
+  overflow-wrap: break-word;
 }
 
 .section-header h2 {
@@ -442,6 +445,7 @@ button {
   font-size: 15px;
   line-height: 1.45;
   letter-spacing: 0;
+  overflow-wrap: break-word;
 }
 
 .service-detail-grid {
@@ -979,6 +983,12 @@ button {
 }
 
 @media (max-width: 640px) {
+  .global-links {
+    flex-wrap: wrap;
+    gap: 16px 20px;
+    white-space: normal;
+  }
+
   .local-nav {
     min-height: auto;
     grid-template-columns: 1fr;
@@ -992,26 +1002,46 @@ button {
 
   .hero-stage,
   .page-hero {
+    width: 100%;
+    max-width: 100vw;
     padding-top: 48px;
     padding-bottom: 56px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
   }
 
   .hero-stage h1,
   .page-hero h1 {
-    font-size: 44px;
+    width: min(300px, 100%);
+    font-size: 32px;
+    line-height: 1.1;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .launch-label,
   .product-kicker {
     font-size: 17px;
+    max-width: 22ch;
+    margin-inline: 0;
   }
 
   .hero-copy {
-    font-size: 18px;
+    width: min(300px, 100%);
+    font-size: 17px;
+    line-height: 1.45;
+    max-width: 300px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .hero-controls {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-controls .pill,
@@ -1047,12 +1077,21 @@ button {
   .editorial-copy h2,
   .wide-story h2,
   .launch-panel h2 {
-    font-size: 36px;
+    width: min(300px, 100%);
+    font-size: 28px;
+    line-height: 1.12;
+    max-width: 300px;
   }
 
   .feature-card h3,
   .process-card h3 {
-    font-size: 34px;
+    font-size: 30px;
+  }
+
+  .standard-card p,
+  .service-detail-card p,
+  .coverage-card p {
+    max-width: 26ch;
   }
 
   .feature-card,
@@ -1070,7 +1109,7 @@ button {
   }
 
   .request-copy h3 {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .form-grid,
@@ -1099,5 +1138,19 @@ button {
 
   .footer address {
     text-align: left;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-stage h1,
+  .page-hero h1 {
+    font-size: 30px;
+  }
+
+  .section-header h2,
+  .editorial-copy h2,
+  .wide-story h2,
+  .launch-panel h2 {
+    font-size: 26px;
   }
 }
