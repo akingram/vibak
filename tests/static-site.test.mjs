@@ -28,10 +28,12 @@ test("keeps the site on React and Express", async () => {
   ]);
 
   assert.match(app, /Vibak Cleaning Services/);
-  assert.match(app, /Fresh spaces\. Clear plans\. Carefully cleaned/);
-  assert.match(app, /Cheshire East cleaning, made clearer/);
-  assert.match(app, /Cleaning that is clear from the first request/);
-  assert.match(app, /Choose the clean that fits your property/);
+  assert.match(app, /Cleaning made simple for homes and businesses/);
+  assert.match(app, /Professional cleaning in Cheshire East/);
+  assert.match(app, /Services at a glance/);
+  assert.match(app, /Every service can be requested online/);
+  assert.match(app, /Request this service/);
+  assert.match(app, /initialRequestFromUrl/);
   assert.match(app, /Domestic Cleaning/);
   assert.match(app, /Crewe, Nantwich, Northwich, and Winsford/);
   assert.match(app, /Built around careful work and clear communication/);
