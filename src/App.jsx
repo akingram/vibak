@@ -529,13 +529,6 @@ function HomePage() {
   return (
     <>
       <section className="hero-stage reference-hero" aria-label="Vibak Cleaning Services hero">
-        <div className="reference-hero-media">
-          <img
-            src="https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=1600&q=90"
-            alt="Bright clean kitchen with polished worktops"
-          />
-        </div>
-
         <div className="reference-hero-copy">
           <p className="launch-label">Cheshire East cleaning, made simple</p>
           <h1>Fresh spaces. Clear requests. Carefully cleaned.</h1>
@@ -1227,6 +1220,9 @@ export default function App() {
       <Header path={path} />
       <CurrentPage path={path} />
       <Footer />
+      <a className="mobile-sticky-request" href="/request-service">
+        Request service
+      </a>
     </main>
   );
 }

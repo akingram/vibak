@@ -35,6 +35,7 @@ test("keeps the site on React and Express", async () => {
   assert.match(app, /Request this service/);
   assert.match(app, /quote-split-band/);
   assert.match(app, /contact-choice-band/);
+  assert.match(app, /mobile-sticky-request/);
   assert.match(app, /initialRequestFromUrl/);
   assert.match(app, /Domestic Cleaning/);
   assert.match(app, /Crewe, Nantwich, Northwich, and Winsford/);
@@ -48,6 +49,7 @@ test("keeps the site on React and Express", async () => {
   assert.match(app, /aria-controls="site-menu"/);
   assert.match(app, /mobile-menu-quote/);
   assert.doesNotMatch(app, /hero-logo-card/);
+  assert.doesNotMatch(app, /Bright clean kitchen with polished worktops/);
   assert.doesNotMatch(app, /launch-standard|No borrowed testimonials|Request concierge|New company/);
   assert.match(packageJson, /"dev": "node server\/dev\.js"/);
   assert.match(packageJson, /"express"/);

@@ -55,6 +55,10 @@ button {
   background: var(--color-gallery-white);
 }
 
+.mobile-sticky-request {
+  display: none;
+}
+
 .top-strip {
   min-height: 36px;
   display: flex;
@@ -499,31 +503,17 @@ button {
 }
 
 .reference-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.74fr);
-  gap: 44px;
+  display: flex;
   align-items: center;
-  padding: 58px max(16px, calc((100vw - 1180px) / 2));
+  min-height: 560px;
+  padding: 82px max(16px, calc((100vw - 1180px) / 2));
   background-image: linear-gradient(135deg, #0d2f4a 0%, #172a70 100%);
   text-align: left;
 }
 
-.reference-hero-media {
-  position: relative;
-  min-height: 560px;
-}
-
-.reference-hero-media > img {
-  width: 100%;
-  height: 560px;
-  border-radius: var(--radius-media);
-  object-fit: cover;
-  object-position: center;
-  box-shadow: 0 26px 90px rgba(4, 15, 35, 0.24);
-}
-
 .reference-hero-copy {
   display: grid;
+  width: min(880px, 100%);
   justify-items: start;
 }
 
@@ -1542,14 +1532,9 @@ button {
   }
 
   .reference-hero {
-    gap: 30px;
-    padding-top: 34px;
-  }
-
-  .reference-hero-media,
-  .reference-hero-media > img {
     min-height: auto;
-    height: 430px;
+    padding-top: 58px;
+    padding-bottom: 70px;
   }
 
   .reference-service-grid {
@@ -1758,12 +1743,7 @@ button {
   }
 
   .reference-hero {
-    padding: 24px 16px 48px;
-  }
-
-  .reference-hero-media,
-  .reference-hero-media > img {
-    height: 320px;
+    padding: 34px 18px 46px;
   }
 
   .hero-stage h1,
@@ -1999,6 +1979,7 @@ button {
 @media (max-width: 760px) {
   body {
     font-size: 17px;
+    padding-bottom: 78px;
   }
 
   .top-strip {
@@ -2082,6 +2063,30 @@ button {
     font-size: 16px;
     font-weight: 700;
   }
+
+  .mobile-sticky-request {
+    position: fixed;
+    left: 18px;
+    right: 18px;
+    bottom: 14px;
+    z-index: 80;
+    min-height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--color-vibak-blue);
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.2;
+    box-shadow: 0 16px 40px rgba(13, 47, 74, 0.25);
+  }
+
+  .mobile-sticky-request:focus-visible {
+    outline: 3px solid #a9e6ff;
+    outline-offset: 3px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2096,11 +2101,6 @@ button {
     padding-top: 26px;
     padding-bottom: 46px;
     gap: 24px;
-  }
-
-  .reference-hero-media,
-  .reference-hero-media > img {
-    height: 260px;
   }
 
   .hero-stage h1,
@@ -2316,11 +2316,6 @@ button {
   .page-hero h1,
   .reference-hero-copy h1 {
     font-size: 36px;
-  }
-
-  .reference-hero-media,
-  .reference-hero-media > img {
-    height: 230px;
   }
 
   .intro-split h2,
