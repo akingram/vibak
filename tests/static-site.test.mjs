@@ -18,10 +18,11 @@ test("builds a Vite React app with Vibak metadata", async () => {
 });
 
 test("keeps the site on React and Express", async () => {
-  const [app, packageJson, devServer] = await Promise.all([
+  const [app, packageJson, devServer, prodServer] = await Promise.all([
     readFile(new URL("../src/App.jsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../server/dev.js", import.meta.url), "utf8"),
+    readFile(new URL("../server/index.js", import.meta.url), "utf8"),
   ]);
 
   assert.match(app, /Vibak Cleaning Services/);
@@ -33,4 +34,18 @@ test("keeps the site on React and Express", async () => {
   assert.doesNotMatch(packageJson, /next|vinext|wrangler|drizzle/i);
   assert.match(devServer, /express/);
   assert.match(devServer, /createViteServer/);
+  assert.match(prodServer, /sendFile/);
+});
+
+test("defines real multi-page routes", async () => {
+  const app = await readFile(new URL("../src/App.jsx", import.meta.url), "utf8");
+
+  assert.match(app, /href: "\/services"/);
+  assert.match(app, /href: "\/request-service"/);
+  assert.match(app, /href: "\/about"/);
+  assert.match(app, /href: "\/contact"/);
+  assert.match(app, /function ServicesPage/);
+  assert.match(app, /function RequestServicePage/);
+  assert.match(app, /function AboutPage/);
+  assert.match(app, /function ContactPage/);
 });

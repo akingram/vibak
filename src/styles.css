@@ -92,6 +92,7 @@ button {
 
 .global-links a:hover,
 .global-links a:focus-visible,
+.global-links a.active,
 .text-link:hover,
 .text-link:focus-visible {
   color: var(--color-pricing-blue);
@@ -177,6 +178,13 @@ button {
   text-align: center;
 }
 
+.page-hero {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: clamp(58px, 8vw, 98px) 0 clamp(48px, 7vw, 82px);
+  text-align: center;
+}
+
 .launch-label,
 .product-kicker {
   margin: 0;
@@ -188,7 +196,8 @@ button {
   letter-spacing: 0.231px;
 }
 
-.hero-stage h1 {
+.hero-stage h1,
+.page-hero h1 {
   max-width: 850px;
   margin: 14px auto 0;
   font-family: var(--font-display);
@@ -688,6 +697,10 @@ button {
 
 .wide-story h2 {
   margin-top: 18px;
+}
+
+.story-action {
+  margin-top: 26px;
 }
 
 .faq-list {

@@ -22,6 +22,14 @@ Open:
 http://localhost:3000/
 ```
 
+## Pages
+
+- `/`
+- `/services`
+- `/request-service`
+- `/about`
+- `/contact`
+
 ## Build
 
 ```bash
