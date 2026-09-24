@@ -1,8 +1,13 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 
-const requestFile = path.resolve("data/service-requests.json");
+const requestFile = process.env.SERVICE_REQUEST_FILE
+  ? path.resolve(process.env.SERVICE_REQUEST_FILE)
+  : process.env.VERCEL
+    ? path.join(tmpdir(), "vibak-service-requests.json")
+    : path.resolve("data/service-requests.json");
 const requiredFields = ["name", "service", "location", "propertyType"];
 
 function clean(value) {

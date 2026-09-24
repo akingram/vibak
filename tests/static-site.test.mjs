@@ -18,12 +18,13 @@ test("builds a Vite React app with Vibak metadata", async () => {
 });
 
 test("keeps the site on React and Express", async () => {
-  const [htmlSource, app, packageJson, devServer, prodServer] = await Promise.all([
+  const [htmlSource, app, packageJson, devServer, prodServer, vercelApi] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../src/App.jsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     readFile(new URL("../server/dev.js", import.meta.url), "utf8"),
     readFile(new URL("../server/index.js", import.meta.url), "utf8"),
+    readFile(new URL("../api/service-requests.js", import.meta.url), "utf8"),
   ]);
 
   assert.match(app, /Vibak Cleaning Services/);
@@ -42,7 +43,12 @@ test("keeps the site on React and Express", async () => {
   assert.match(devServer, /express/);
   assert.match(devServer, /createViteServer/);
   assert.match(prodServer, /sendFile/);
-  assert.doesNotMatch(`${htmlSource}\n${app}\n${packageJson}\n${devServer}\n${prodServer}`, /openai|chatgpt|codex/i);
+  assert.match(vercelApi, /handleServiceRequest/);
+  assert.match(vercelApi, /request\.method !== "POST"/);
+  assert.doesNotMatch(
+    `${htmlSource}\n${app}\n${packageJson}\n${devServer}\n${prodServer}\n${vercelApi}`,
+    /openai|chatgpt|codex/i,
+  );
 });
 
 test("defines real multi-page routes", async () => {
@@ -59,4 +65,19 @@ test("defines real multi-page routes", async () => {
   assert.match(app, /function LaunchPanel/);
   assert.match(app, /service-detail-grid/);
   assert.match(app, /screening-fieldset/);
+});
+
+test("includes Vercel import settings", async () => {
+  const vercelConfig = JSON.parse(
+    await readFile(new URL("../vercel.json", import.meta.url), "utf8"),
+  );
+
+  assert.equal(vercelConfig.buildCommand, "npm run build");
+  assert.equal(vercelConfig.outputDirectory, "dist");
+  assert.ok(
+    vercelConfig.rewrites.some(
+      (rewrite) =>
+        rewrite.source === "/request-service" && rewrite.destination === "/index.html",
+    ),
+  );
 });

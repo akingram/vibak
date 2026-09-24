@@ -41,3 +41,15 @@ npm run build
 ```bash
 npm run test
 ```
+
+## Deploy on Vercel
+
+Import the GitHub repository into Vercel and use:
+
+- Framework Preset: Vite
+- Build Command: `npm run build`
+- Output Directory: `dist`
+- Install Command: `npm install`
+
+The service request API is available at `/api/service-requests`. For long-term
+production storage, connect the form to a database, CRM, email service, or webhook.
