@@ -26,9 +26,11 @@ test("keeps the site on React and Express", async () => {
   ]);
 
   assert.match(app, /Vibak Cleaning Services/);
-  assert.match(app, /Client-focused cleaning that listens first/);
+  assert.match(app, /Professional cleaning with a launch-standard level of care/);
   assert.match(app, /Domestic Cleaning/);
   assert.match(app, /Crewe, Nantwich, Northwich, and Winsford/);
+  assert.match(app, /No borrowed testimonials or inflated proof/);
+  assert.match(app, /Founding-client care/);
   assert.match(packageJson, /"dev": "node server\/dev\.js"/);
   assert.match(packageJson, /"express"/);
   assert.doesNotMatch(packageJson, /next|vinext|wrangler|drizzle/i);
@@ -48,4 +50,6 @@ test("defines real multi-page routes", async () => {
   assert.match(app, /function RequestServicePage/);
   assert.match(app, /function AboutPage/);
   assert.match(app, /function ContactPage/);
+  assert.match(app, /function LaunchPanel/);
+  assert.match(app, /service-detail-grid/);
 });
