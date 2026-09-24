@@ -28,11 +28,13 @@ test("keeps the site on React and Express", async () => {
   ]);
 
   assert.match(app, /Vibak Cleaning Services/);
-  assert.match(app, /Cleaning made simple for homes and businesses/);
-  assert.match(app, /Professional cleaning in Cheshire East/);
-  assert.match(app, /Services at a glance/);
-  assert.match(app, /Every service can be requested online/);
+  assert.match(app, /Fresh spaces\. Clear requests\. Carefully cleaned/);
+  assert.match(app, /Cheshire East cleaning, made simple/);
+  assert.match(app, /Choose the clean that fits your property/);
+  assert.match(app, /Find the right starting point/);
   assert.match(app, /Request this service/);
+  assert.match(app, /quote-split-band/);
+  assert.match(app, /contact-choice-band/);
   assert.match(app, /initialRequestFromUrl/);
   assert.match(app, /Domestic Cleaning/);
   assert.match(app, /Crewe, Nantwich, Northwich, and Winsford/);
@@ -71,7 +73,7 @@ test("defines real multi-page routes", async () => {
   assert.match(app, /function AboutPage/);
   assert.match(app, /function ContactPage/);
   assert.match(app, /function LaunchPanel/);
-  assert.match(app, /service-detail-grid/);
+  assert.match(app, /reference-service-grid/);
   assert.match(app, /screening-fieldset/);
 });
 

@@ -100,6 +100,49 @@ const serviceDetails = [
   },
 ];
 
+const serviceVisuals = {
+  "Domestic Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=1400&q=86",
+    alt: "Bright kitchen with clean worktops and polished surfaces",
+  },
+  "Office Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=86",
+    alt: "Clean modern office with desks and daylight",
+  },
+  "Airbnb & Short-Term Let Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1400&q=86",
+    alt: "Freshly made bed in a calm guest bedroom",
+  },
+  "Hotel Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1560067174-e553b3647603?auto=format&fit=crop&w=1400&q=86",
+    alt: "Hotel room with freshly made bed and clean surfaces",
+  },
+  "Commercial Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=86",
+    alt: "Clean shared business workspace with tidy desks",
+  },
+  "End of Tenancy Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=86",
+    alt: "Clean contemporary living room ready for handover",
+  },
+  "Move-In & Move-Out Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1400&q=86",
+    alt: "Bright empty room ready for moving day",
+  },
+  "Scheduled Cleaning": {
+    image:
+      "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1400&q=86",
+    alt: "Clean bathroom counter with fresh towels",
+  },
+};
+
 const premiumStandards = [
   {
     title: "Care from the first visit",
@@ -419,6 +462,30 @@ function StandardGrid({ items, className = "" }) {
   );
 }
 
+function ServiceShowcase({ limit = serviceDetails.length }) {
+  return (
+    <div className="reference-service-grid">
+      {serviceDetails.slice(0, limit).map((service, index) => {
+        const visual = serviceVisuals[service.title];
+
+        return (
+          <article className="reference-service-card" key={service.title}>
+            <img src={visual.image} alt={visual.alt} loading="lazy" />
+            <div>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{service.title}</h3>
+              <p>{service.scope}</p>
+              <a className="text-link" href={serviceRequestHref(service.title)}>
+                Request this service
+              </a>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
 function ServiceCards() {
   return (
     <div className="feature-row">
@@ -458,66 +525,145 @@ function LaunchPanel() {
 function HomePage() {
   return (
     <>
-      <section className="hero-stage home-hero" aria-label="Vibak Cleaning Services hero">
-        <p className="launch-label">Professional cleaning in Cheshire East</p>
-        <h1>Cleaning made simple for homes and businesses.</h1>
-        <p className="hero-copy">
-          Book domestic, office, Airbnb, hotel, commercial, tenancy, move-in,
-          move-out, or scheduled cleaning across Crewe, Nantwich, Northwich, and
-          Winsford.
-        </p>
-
-        <div className="hero-controls">
-          <a className="pill pill-blue hero-pill" href="/request-service">
-            Request a service
-          </a>
-          <a className="pill pill-ghost hero-pill" href="/services">
-            View services
-          </a>
+      <section className="hero-stage reference-hero" aria-label="Vibak Cleaning Services hero">
+        <div className="reference-hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1779314687592-7d64bea77e8a?auto=format&fit=crop&w=1600&q=90"
+            alt="Bright clean kitchen with polished worktops"
+          />
+          <div className="hero-logo-card">
+            <img src="/vibak.jpeg" alt="Vibak Cleaning Services" />
+          </div>
         </div>
 
-        <div className="hero-badges" aria-label="Vibak service highlights">
-          {heroBadges.map((badge) => (
-            <span key={badge}>{badge}</span>
-          ))}
+        <div className="reference-hero-copy">
+          <p className="launch-label">Cheshire East cleaning, made simple</p>
+          <h1>Fresh spaces. Clear requests. Carefully cleaned.</h1>
+          <p className="hero-copy">
+            Professional cleaning for homes, workspaces, rentals, hotels, and
+            moving days, planned around your property before work begins.
+          </p>
+
+          <div className="hero-controls">
+            <a className="pill pill-blue hero-pill" href="/request-service">
+              Request a service
+            </a>
+            <a className="pill pill-ghost hero-pill" href="/services">
+              View services
+            </a>
+          </div>
+
+          <div className="hero-badges" aria-label="Vibak service highlights">
+            {heroBadges.map((badge) => (
+              <span key={badge}>{badge}</span>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="home-quick-panel" aria-label="Quick cleaning request">
-        <div className="home-quick-copy">
-          <p className="product-kicker">Start here</p>
-          <h2>Pick the clean. Send the details. We confirm the plan.</h2>
+      <section className="intro-split reference-intro">
+        <div>
+          <p className="product-kicker">Vibak Cleaning Services</p>
+          <h2>Cleaning that is clear from the first request.</h2>
+        </div>
+        <div>
           <p>
-            Use one short request for one-off, regular, move, rental, hospitality,
-            or workplace cleaning.
+            Vibak helps homeowners, tenants, landlords, hosts, businesses, and
+            property managers keep spaces fresh, presentable, and ready to use.
           </p>
-          <a className="pill pill-blue" href="/request-service">
-            Request a service
+          <p>
+            Every property is different. Tell us the service, size, condition,
+            access, and priorities so the clean can be planned with care.
+          </p>
+          <a className="text-link" href="/about">
+            Meet Vibak Cleaning Services
           </a>
         </div>
-        <div className="quick-path-grid">
-          {quickServicePaths.map((path) => (
-            <article className="quick-path-card" key={path.title}>
-              <p>{path.label}</p>
-              <h3>{path.title}</h3>
-              <span>{path.text}</span>
+      </section>
+
+      <section className="highlights reference-services">
+        <div className="section-header">
+          <div>
+            <p className="product-kicker">Real services, useful detail</p>
+            <h2>Choose the clean that fits your property.</h2>
+          </div>
+          <a className="text-link" href="/services">
+            View all services
+          </a>
+        </div>
+        <ServiceShowcase limit={6} />
+      </section>
+
+      <section className="visual-detail-band">
+        <div className="product-visual">
+          <img
+            src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1800&q=86"
+            alt="Minimal bathroom with clean tile, sink, and mirror"
+            loading="lazy"
+          />
+          <div className="price-callout">
+            <p>Visible attention to detail</p>
+            <span>Kitchens, bathrooms, living spaces, workplaces, rentals, and agreed priorities.</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="process-band">
+        <div className="section-header">
+          <div>
+            <p className="product-kicker">A simpler route to a clean space</p>
+            <h2>From enquiry to clean in three clear steps.</h2>
+          </div>
+          <a className="text-link" href="/request-service">
+            Start your request
+          </a>
+        </div>
+        <div className="process-grid">
+          {steps.map((step) => (
+            <article className="process-card" key={step.number}>
+              <span>{step.number}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="home-service-strip" aria-labelledby="home-services-title">
-        <div className="section-header compact-header">
-          <h2 id="home-services-title">Services at a glance.</h2>
-          <a className="text-link" href="/services">
-            Compare services
+      <section className="quote-split-band">
+        <div>
+          <p className="product-kicker">A clean shaped around your space</p>
+          <h2>Tell us what needs cleaning. Vibak will take it from there.</h2>
+          <p>
+            Share the property, condition, access, schedule, and service you need
+            for a clear follow-up from Vibak Cleaning Services.
+          </p>
+        </div>
+        <div className="quote-actions">
+          <a className="pill pill-blue hero-pill" href="/request-service">
+            Get a personalised request
+          </a>
+          <a className="pill pill-light hero-pill" href="/contact">
+            Ask a question
           </a>
         </div>
-        <div className="home-service-chips" aria-label="Request a specific Vibak service">
-          {allServices.map((service) => (
-            <a href={serviceRequestHref(service)} key={service}>
-              {service}
-            </a>
+      </section>
+
+      <section className="faq-section home-faq">
+        <div className="section-header">
+          <div>
+            <p className="product-kicker">Good to know</p>
+            <h2>Questions before you book?</h2>
+          </div>
+          <a className="text-link" href="/contact">
+            Ask a different question
+          </a>
+        </div>
+        <div className="faq-list">
+          {faqs.slice(0, 4).map((faq) => (
+            <details key={faq.question}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </details>
           ))}
         </div>
       </section>
@@ -525,12 +671,16 @@ function HomePage() {
       <section className="home-cta-panel" aria-label="Request a Vibak cleaning service">
         <div>
           <p className="product-kicker">Ready when you are</p>
-          <h2>Need a cleaner this week?</h2>
-          <p>Choose the service, add the property details, and Vibak will follow up.</p>
+          <h2>Tell us what needs cleaning.</h2>
         </div>
-        <a className="pill pill-blue hero-pill" href="/request-service">
-          Start request
-        </a>
+        <div className="quote-actions">
+          <a className="pill pill-blue hero-pill" href="/request-service">
+            Request a service
+          </a>
+          <a className="text-link" href="/services">
+            View services
+          </a>
+        </div>
       </section>
     </>
   );
@@ -541,8 +691,8 @@ function ServicesPage() {
     <>
       <PageHero
         label="Services"
-        title="Choose a cleaning service and request it directly."
-        copy="Select the service that fits the property. The request form will open with that service ready to go."
+        title="Useful services. Clear scope. No one-size-fits-all checklist."
+        copy="Choose a property clean, workplace clean, hospitality reset, tenancy handover, or scheduled plan. Each service can be requested directly."
         actions={
           <a className="pill pill-blue hero-pill" href="/request-service">
             Request a service
@@ -552,21 +702,38 @@ function ServicesPage() {
 
       <section className="service-detail-section services-action-section">
         <div className="section-header">
-          <h2>Every service can be requested online.</h2>
+          <div>
+            <p className="product-kicker">All Vibak cleaning services</p>
+            <h2>Find the right starting point.</h2>
+          </div>
           <a className="text-link" href="/request-service">
             Open request form
           </a>
         </div>
-        <div className="service-detail-grid">
-          {serviceDetails.map((service) => (
-            <article className="service-detail-card" key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.scope}</p>
-              <a className="pill pill-blue service-card-action" href={serviceRequestHref(service.title)}>
-                Request this service
-              </a>
-            </article>
-          ))}
+        <ServiceShowcase />
+      </section>
+
+      <section className="quote-split-band services-quote">
+        <div>
+          <p className="product-kicker">Short request</p>
+          <h2>Share the property, service, and priority.</h2>
+          <p>
+            Vibak will review the area, property size, access, scope, and
+            availability before arranging the visit.
+          </p>
+          <ul className="quote-list">
+            <li>Crewe, Nantwich, Northwich, Winsford</li>
+            <li>One-time or scheduled cleaning</li>
+            <li>Property-specific service planning</li>
+          </ul>
+        </div>
+        <div className="quote-mini-card">
+          <p className="product-kicker">Request online</p>
+          <h3>Tell us the essentials.</h3>
+          <span>Choose a service, add the property details, and send the request.</span>
+          <a className="pill pill-blue hero-pill" href="/request-service">
+            Request my clean
+          </a>
         </div>
       </section>
     </>
@@ -932,6 +1099,7 @@ function AboutPage() {
           loading="lazy"
         />
       </section>
+      <LaunchPanel />
     </>
   );
 }
@@ -940,27 +1108,68 @@ function ContactPage() {
   return (
     <>
       <PageHero
-        label="Contact"
-        title="Questions before booking? Start here."
-        copy="Request a service when you are ready, or check the quick answers below."
+        label="Contact Vibak"
+        title="Tell us about the property. We will keep the next step simple."
+        copy="Share the service, area, property size, access notes, and priority areas for a clear follow-up."
         actions={
           <a className="pill pill-blue hero-pill" href="/request-service">
             Request a service
           </a>
         }
       />
+      <section className="contact-choice-band">
+        <div className="section-header">
+          <div>
+            <p className="product-kicker">Choose how to start</p>
+            <h2>Send the form, choose a service, or confirm the area.</h2>
+          </div>
+          <a className="text-link" href="/request-service">
+            Open request form
+          </a>
+        </div>
+        <div className="contact-choice-grid">
+          <article className="contact-choice-card">
+            <span>01</span>
+            <h3>Request online</h3>
+            <p>Use the form for the fastest route into a clear cleaning brief.</p>
+            <a className="text-link" href="/request-service">
+              Start request
+            </a>
+          </article>
+          <article className="contact-choice-card">
+            <span>02</span>
+            <h3>Pick a service</h3>
+            <p>Choose the clean you need and open the form with it selected.</p>
+            <a className="text-link" href="/services">
+              View services
+            </a>
+          </article>
+          <article className="contact-choice-card">
+            <span>03</span>
+            <h3>Check coverage</h3>
+            <p>Crewe, Nantwich, Northwich, Winsford, and nearby Cheshire East areas.</p>
+            <a className="text-link" href="/request-service">
+              Send postcode
+            </a>
+          </article>
+        </div>
+      </section>
+
       <section className="coverage-band">
         <div className="section-header">
-          <h2>Serving Cheshire East with flexible cleaning support.</h2>
+          <div>
+            <p className="product-kicker">What helps us respond</p>
+            <h2>Five details make the request easier to confirm.</h2>
+          </div>
           <a className="text-link" href="/request-service">
             Send a brief
           </a>
         </div>
-        <div className="coverage-grid" aria-label="Vibak coverage areas">
-          {locations.slice(0, 4).map((location) => (
-            <article className="coverage-card" key={location}>
-              <h3>{location}</h3>
-              <p>Domestic, commercial, rental, hospitality, scheduled, and move-related cleaning.</p>
+        <div className="coverage-grid quote-help-grid" aria-label="What helps Vibak quote">
+          {requestChecklist.map((item) => (
+            <article className="coverage-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </article>
           ))}
         </div>
