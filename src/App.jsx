@@ -1,3 +1,5 @@
+import { useMemo, useState } from "react";
+
 const anchors = ["Services", "Commitment", "Booking", "Questions"];
 
 const featuredServices = [
@@ -85,7 +87,97 @@ const faqs = [
   },
 ];
 
+const locations = ["Crewe", "Nantwich", "Northwich", "Winsford", "Other Cheshire East area"];
+const propertyTypes = [
+  "Home",
+  "Office",
+  "Airbnb / Short-Term Let",
+  "Hotel",
+  "Commercial Premises",
+  "Tenant / Landlord Property",
+];
+const frequencies = ["One-time", "Weekly", "Bi-weekly", "Monthly", "Not sure yet"];
+
+const initialRequest = {
+  name: "",
+  email: "",
+  phone: "",
+  service: "Domestic Cleaning",
+  location: "Crewe",
+  propertyType: "Home",
+  frequency: "One-time",
+  preferredDate: "",
+  address: "",
+  details: "",
+};
+
 export default function App() {
+  const [requestForm, setRequestForm] = useState(initialRequest);
+  const [requestStatus, setRequestStatus] = useState({
+    state: "idle",
+    message: "",
+    reference: "",
+  });
+
+  const isSubmitting = requestStatus.state === "submitting";
+  const requestSummary = useMemo(
+    () => [
+      requestForm.service,
+      requestForm.location,
+      requestForm.frequency,
+    ].filter(Boolean),
+    [requestForm.frequency, requestForm.location, requestForm.service],
+  );
+
+  function updateRequest(event) {
+    const { name, value } = event.target;
+    setRequestForm((current) => ({
+      ...current,
+      [name]: value,
+    }));
+  }
+
+  async function submitRequest(event) {
+    event.preventDefault();
+
+    if (!requestForm.email.trim() && !requestForm.phone.trim()) {
+      setRequestStatus({
+        state: "error",
+        message: "Please add either an email address or phone number.",
+        reference: "",
+      });
+      return;
+    }
+
+    setRequestStatus({ state: "submitting", message: "Sending your request...", reference: "" });
+
+    try {
+      const response = await fetch("/api/service-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestForm),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.message || "We could not send your request.");
+      }
+
+      setRequestStatus({
+        state: "success",
+        message: result.message,
+        reference: result.reference,
+      });
+      setRequestForm(initialRequest);
+    } catch (error) {
+      setRequestStatus({
+        state: "error",
+        message: error.message || "Please try again.",
+        reference: "",
+      });
+    }
+  }
+
   return (
     <main className="site-shell">
       <nav className="global-nav" aria-label="Global navigation">
@@ -224,6 +316,142 @@ export default function App() {
               <p>{step.text}</p>
             </article>
           ))}
+        </div>
+
+        <div className="request-panel" aria-label="Request a cleaning service">
+          <div className="request-copy">
+            <p className="product-kicker">Request a service</p>
+            <h3>Tell Vibak what you need cleaned.</h3>
+            <p>
+              Send the essentials now. Your request is saved securely on this
+              server so the team can review the service type, location, timing,
+              and details before following up.
+            </p>
+            <div className="request-summary" aria-label="Current request summary">
+              {requestSummary.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+
+          <form className="request-form" onSubmit={submitRequest}>
+            <div className="form-grid">
+              <label>
+                Full name
+                <input
+                  name="name"
+                  value={requestForm.name}
+                  onChange={updateRequest}
+                  placeholder="Your name"
+                  autoComplete="name"
+                  required
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  name="email"
+                  type="email"
+                  value={requestForm.email}
+                  onChange={updateRequest}
+                  placeholder="you@example.com"
+                  autoComplete="email"
+                />
+              </label>
+              <label>
+                Phone
+                <input
+                  name="phone"
+                  value={requestForm.phone}
+                  onChange={updateRequest}
+                  placeholder="Best contact number"
+                  autoComplete="tel"
+                />
+              </label>
+              <label>
+                Service
+                <select name="service" value={requestForm.service} onChange={updateRequest}>
+                  {allServices.map((service) => (
+                    <option key={service}>{service}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Area
+                <select name="location" value={requestForm.location} onChange={updateRequest}>
+                  {locations.map((location) => (
+                    <option key={location}>{location}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Property type
+                <select
+                  name="propertyType"
+                  value={requestForm.propertyType}
+                  onChange={updateRequest}
+                >
+                  {propertyTypes.map((propertyType) => (
+                    <option key={propertyType}>{propertyType}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Frequency
+                <select name="frequency" value={requestForm.frequency} onChange={updateRequest}>
+                  {frequencies.map((frequency) => (
+                    <option key={frequency}>{frequency}</option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                Preferred date
+                <input
+                  name="preferredDate"
+                  type="date"
+                  value={requestForm.preferredDate}
+                  onChange={updateRequest}
+                />
+              </label>
+            </div>
+
+            <label>
+              Address or postcode
+              <input
+                name="address"
+                value={requestForm.address}
+                onChange={updateRequest}
+                placeholder="Property address or postcode"
+                autoComplete="street-address"
+              />
+            </label>
+
+            <label>
+              Details
+              <textarea
+                name="details"
+                value={requestForm.details}
+                onChange={updateRequest}
+                placeholder="Tell us about room count, access, priorities, pets, parking, or anything else that helps."
+                rows="5"
+              />
+            </label>
+
+            <div className="form-actions">
+              <p className="form-note">
+                Add either an email or phone number so Vibak can follow up.
+              </p>
+              <button className="pill pill-blue hero-pill" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Submit request"}
+              </button>
+            </div>
+
+            <p className={`form-status ${requestStatus.state}`} aria-live="polite">
+              {requestStatus.reference
+                ? `${requestStatus.message} Reference: ${requestStatus.reference}`
+                : requestStatus.message}
+            </p>
+          </form>
         </div>
       </section>
 
