@@ -16,6 +16,9 @@ const pageTitles = {
   "/contact": "Contact | Vibak Cleaning Services",
 };
 
+const contactPhone = "+44 7482 389782";
+const contactPhoneHref = "tel:+447482389782";
+
 const allServices = [
   "Domestic Cleaning",
   "Office Cleaning",
@@ -358,7 +361,7 @@ function Header({ path }) {
     <>
       <div className="top-strip" aria-label="Service summary">
         <span>Professional cleaning across Cheshire East</span>
-        <span>Crewe / Nantwich / Northwich / Winsford</span>
+        <a href={contactPhoneHref}>Call {contactPhone}</a>
       </div>
 
       <nav className="global-nav" aria-label="Primary navigation">
@@ -428,11 +431,9 @@ function Footer() {
           <a href="/contact">Contact</a>
         </div>
         <address>
-          <h2>Coverage</h2>
-          <span>Crewe</span>
-          <span>Nantwich</span>
-          <span>Northwich</span>
-          <span>Winsford</span>
+          <h2>Contact</h2>
+          <a href={contactPhoneHref}>{contactPhone}</a>
+          <span>Crewe / Nantwich / Northwich / Winsford</span>
         </address>
       </div>
     </footer>
@@ -557,7 +558,7 @@ function HomePage() {
       <section className="intro-split reference-intro">
         <div>
           <p className="product-kicker">Vibak Cleaning Services</p>
-          <h2>Cleaning that is clear from the first request.</h2>
+          <h2>Clear cleaning from the first request.</h2>
         </div>
         <div>
           <p>
@@ -1105,9 +1106,14 @@ function ContactPage() {
         title="Tell us about the property. We will keep the next step simple."
         copy="Share the service, area, property size, access notes, and priority areas for a clear follow-up."
         actions={
-          <a className="pill pill-blue hero-pill" href="/request-service">
-            Request a service
-          </a>
+          <>
+            <a className="pill pill-blue hero-pill" href="/request-service">
+              Request a service
+            </a>
+            <a className="pill pill-outline hero-pill" href={contactPhoneHref}>
+              Call {contactPhone}
+            </a>
+          </>
         }
       />
       <section className="contact-choice-band">
@@ -1123,6 +1129,14 @@ function ContactPage() {
         <div className="contact-choice-grid">
           <article className="contact-choice-card">
             <span>01</span>
+            <h3>Call Vibak</h3>
+            <p>Speak directly about the service, area, and property details.</p>
+            <a className="text-link" href={contactPhoneHref}>
+              {contactPhone}
+            </a>
+          </article>
+          <article className="contact-choice-card">
+            <span>02</span>
             <h3>Request online</h3>
             <p>Use the form for the fastest route into a clear cleaning brief.</p>
             <a className="text-link" href="/request-service">
@@ -1130,7 +1144,7 @@ function ContactPage() {
             </a>
           </article>
           <article className="contact-choice-card">
-            <span>02</span>
+            <span>03</span>
             <h3>Pick a service</h3>
             <p>Choose the clean you need and open the form with it selected.</p>
             <a className="text-link" href="/services">
@@ -1138,7 +1152,7 @@ function ContactPage() {
             </a>
           </article>
           <article className="contact-choice-card">
-            <span>03</span>
+            <span>04</span>
             <h3>Check coverage</h3>
             <p>Crewe, Nantwich, Northwich, Winsford, and nearby Cheshire East areas.</p>
             <a className="text-link" href="/request-service">

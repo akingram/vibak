@@ -35,6 +35,8 @@ test("keeps the site on React and Express", async () => {
   assert.match(app, /Request this service/);
   assert.match(app, /quote-split-band/);
   assert.match(app, /contact-choice-band/);
+  assert.match(app, /\+44 7482 389782/);
+  assert.match(app, /tel:\+447482389782/);
   assert.match(app, /mobile-sticky-request/);
   assert.match(app, /initialRequestFromUrl/);
   assert.match(app, /Domestic Cleaning/);
