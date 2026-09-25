@@ -18,6 +18,8 @@ const pageTitles = {
 
 const contactPhone = "+44 7482 389782";
 const contactPhoneHref = "tel:+447482389782";
+const whatsappHref =
+  "https://wa.me/447482389782?text=Hello%20Vibak%20Cleaning%20Services%2C%20I%20would%20like%20to%20request%20a%20cleaning%20service.";
 
 const allServices = [
   "Domestic Cleaning",
@@ -361,7 +363,12 @@ function Header({ path }) {
     <>
       <div className="top-strip" aria-label="Service summary">
         <span>Professional cleaning across Cheshire East</span>
-        <a href={contactPhoneHref}>Call {contactPhone}</a>
+        <div className="top-strip-actions">
+          <a href={contactPhoneHref}>Call {contactPhone}</a>
+          <a href={whatsappHref} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+        </div>
       </div>
 
       <nav className="global-nav" aria-label="Primary navigation">
@@ -400,6 +407,15 @@ function Header({ path }) {
             </a>
           ))}
           <a
+            className="pill pill-whatsapp mobile-menu-whatsapp"
+            href={whatsappHref}
+            target="_blank"
+            rel="noreferrer"
+            onClick={closeMenu}
+          >
+            WhatsApp
+          </a>
+          <a
             className="pill pill-blue mobile-menu-quote"
             href="/request-service"
             onClick={closeMenu}
@@ -407,9 +423,14 @@ function Header({ path }) {
             Get a quote
           </a>
         </div>
-        <a className="pill pill-blue nav-quote" href="/request-service">
-          Get a quote
-        </a>
+        <div className="nav-actions">
+          <a className="pill pill-whatsapp nav-whatsapp" href={whatsappHref} target="_blank" rel="noreferrer">
+            WhatsApp
+          </a>
+          <a className="pill pill-blue nav-quote" href="/request-service">
+            Get a quote
+          </a>
+        </div>
       </nav>
     </>
   );
@@ -433,6 +454,9 @@ function Footer() {
         <address>
           <h2>Contact</h2>
           <a href={contactPhoneHref}>{contactPhone}</a>
+          <a href={whatsappHref} target="_blank" rel="noreferrer">
+            WhatsApp Vibak
+          </a>
           <span>Crewe / Nantwich / Northwich / Winsford</span>
         </address>
       </div>
@@ -1116,6 +1140,9 @@ function ContactPage() {
             <a className="pill pill-outline hero-pill" href={contactPhoneHref}>
               Call {contactPhone}
             </a>
+            <a className="pill pill-whatsapp hero-pill" href={whatsappHref} target="_blank" rel="noreferrer">
+              WhatsApp
+            </a>
           </>
         }
       />
@@ -1140,6 +1167,14 @@ function ContactPage() {
           </article>
           <article className="contact-choice-card">
             <span>02</span>
+            <h3>WhatsApp Vibak</h3>
+            <p>Send a quick message with your service, area, and preferred time.</p>
+            <a className="text-link" href={whatsappHref} target="_blank" rel="noreferrer">
+              Message on WhatsApp
+            </a>
+          </article>
+          <article className="contact-choice-card">
+            <span>03</span>
             <h3>Request online</h3>
             <p>Use the form for the fastest route into a clear cleaning brief.</p>
             <a className="text-link" href="/request-service">
@@ -1147,19 +1182,11 @@ function ContactPage() {
             </a>
           </article>
           <article className="contact-choice-card">
-            <span>03</span>
+            <span>04</span>
             <h3>Pick a service</h3>
             <p>Choose the clean you need and open the form with it selected.</p>
             <a className="text-link" href="/services">
               View services
-            </a>
-          </article>
-          <article className="contact-choice-card">
-            <span>04</span>
-            <h3>Check coverage</h3>
-            <p>Crewe, Nantwich, Northwich, Winsford, and nearby Cheshire East areas.</p>
-            <a className="text-link" href="/request-service">
-              Send postcode
             </a>
           </article>
         </div>
@@ -1237,9 +1264,14 @@ export default function App() {
       <Header path={path} />
       <CurrentPage path={path} />
       <Footer />
-      <a className="mobile-sticky-request" href="/request-service">
-        Request service
-      </a>
+      <div className="mobile-sticky-actions" aria-label="Quick contact actions">
+        <a className="mobile-sticky-request" href="/request-service">
+          Request service
+        </a>
+        <a className="mobile-sticky-whatsapp" href={whatsappHref} target="_blank" rel="noreferrer">
+          WhatsApp
+        </a>
+      </div>
     </main>
   );
 }
