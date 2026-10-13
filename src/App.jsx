@@ -9,17 +9,17 @@ const navigation = [
 ];
 
 const pageTitles = {
-  "/": "Vibak Cleaning Services | Professional Cleaning in Cheshire East",
-  "/services": "Services | Vibak Cleaning Services",
-  "/request-service": "Request a Service | Vibak Cleaning Services",
-  "/about": "About | Vibak Cleaning Services",
-  "/contact": "Contact | Vibak Cleaning Services",
+  "/": "214 Cleaning Services | Professional Cleaning in Cheshire East",
+  "/services": "Services | 214 Cleaning Services",
+  "/request-service": "Request a Service | 214 Cleaning Services",
+  "/about": "About | 214 Cleaning Services",
+  "/contact": "Contact | 214 Cleaning Services",
 };
 
 const contactPhone = "+44 7482 389782";
 const contactPhoneHref = "tel:+447482389782";
 const whatsappHref =
-  "https://wa.me/447482389782?text=Hello%20Vibak%20Cleaning%20Services%2C%20I%20would%20like%20to%20request%20a%20cleaning%20service.";
+  "https://wa.me/447482389782?text=Hello%20214%20Cleaning%20Services%2C%20I%20would%20like%20to%20request%20a%20cleaning%20service.";
 
 const allServices = [
   "Domestic Cleaning",
@@ -215,7 +215,7 @@ const steps = [
   {
     number: "02",
     title: "Plan",
-    text: "Vibak reviews the request, clarifies expectations, and shapes the cleaning priorities before the visit.",
+    text: "214 reviews the request, clarifies expectations, and shapes the cleaning priorities before the visit.",
   },
   {
     number: "03",
@@ -245,12 +245,12 @@ const requestChecklist = [
 
 const faqs = [
   {
-    question: "Where does Vibak Cleaning Services operate?",
+    question: "Where does 214 Cleaning Services operate?",
     answer:
-      "Vibak serves Cheshire East communities including Crewe, Nantwich, Northwich, and Winsford.",
+      "214 serves Cheshire East communities including Crewe, Nantwich, Northwich, and Winsford.",
   },
   {
-    question: "How does Vibak build trust with first-time clients?",
+    question: "How does 214 build trust with first-time clients?",
     answer:
       "We keep the booking clear, agree the priorities before we arrive, and use your comments after the visit to improve the service.",
   },
@@ -262,7 +262,7 @@ const faqs = [
   {
     question: "Why does the request form ask screening questions?",
     answer:
-      "The extra details help Vibak understand the size, condition, access, supplies, and priority areas before confirming the clean.",
+      "The extra details help 214 understand the size, condition, access, supplies, and priority areas before confirming the clean.",
   },
   {
     question: "Do you handle tenancy and move-out cleaning?",
@@ -375,12 +375,12 @@ function Header({ path }) {
         <a
           href="/"
           onClick={closeMenu}
-          aria-label="Vibak Cleaning Services home"
+          aria-label="214 Cleaning Services home"
           className="global-mark"
         >
           <img src="/vibak.jpeg" alt="" aria-hidden="true" />
           <span className="brand-copy">
-            <strong>Vibak</strong>
+            <strong>214 Cleaning Services</strong>
             <small>Cleaning Services</small>
           </span>
         </a>
@@ -440,7 +440,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div>
-        <p className="footer-title">Vibak Cleaning Services</p>
+        <p className="footer-title">214 Cleaning Services</p>
         <p>Detailed cleaning for homes, workspaces, rentals, hotels, and moving days.</p>
       </div>
       <div className="footer-columns">
@@ -455,7 +455,7 @@ function Footer() {
           <h2>Contact</h2>
           <a href={contactPhoneHref}>{contactPhone}</a>
           <a href={whatsappHref} target="_blank" rel="noreferrer">
-            WhatsApp Vibak
+            WhatsApp 214
           </a>
           <span>Crewe / Nantwich / Northwich / Winsford</span>
         </address>
@@ -531,12 +531,12 @@ function ServiceCards() {
 
 function LaunchPanel() {
   return (
-    <section className="launch-panel" aria-label="Vibak service approach">
+    <section className="launch-panel" aria-label="214 service approach">
       <div>
         <p className="product-kicker">How we work</p>
         <h2>Built around careful work and clear communication.</h2>
         <p>
-          Vibak is building its reputation one clean at a time. Every job starts
+          214 is building its reputation one clean at a time. Every job starts
           with understanding the space, agreeing the priorities, and leaving
           things fresh, tidy, and ready to use.
         </p>
@@ -553,7 +553,7 @@ function LaunchPanel() {
 function HomePage() {
   return (
     <>
-      <section className="hero-stage reference-hero" aria-label="Vibak Cleaning Services hero">
+      <section className="hero-stage reference-hero" aria-label="214 Cleaning Services hero">
         <div className="reference-hero-copy">
           <p className="launch-label">Cheshire East cleaning, made simple</p>
           <h1>Fresh spaces. Clear requests. Carefully cleaned.</h1>
@@ -574,7 +574,7 @@ function HomePage() {
             </a>
           </div>
 
-          <div className="hero-badges" aria-label="Vibak service highlights">
+          <div className="hero-badges" aria-label="214 service highlights">
             {heroBadges.map((badge) => (
               <span key={badge}>{badge}</span>
             ))}
@@ -584,12 +584,12 @@ function HomePage() {
 
       <section className="intro-split reference-intro">
         <div>
-          <p className="product-kicker">Vibak Cleaning Services</p>
+          <p className="product-kicker">214 Cleaning Services</p>
           <h2>Clear cleaning from the first request.</h2>
         </div>
         <div>
           <p>
-            Vibak helps homeowners, tenants, landlords, hosts, businesses, and
+            214 Cleaning Services helps homeowners, tenants, landlords, hosts, businesses, and
             property managers keep spaces fresh, presentable, and ready to use.
           </p>
           <p>
@@ -597,7 +597,7 @@ function HomePage() {
             access, and priorities so the clean can be planned with care.
           </p>
           <a className="text-link" href="/about">
-            Meet Vibak Cleaning Services
+            Meet 214 Cleaning Services
           </a>
         </div>
       </section>
@@ -653,10 +653,10 @@ function HomePage() {
       <section className="quote-split-band">
         <div>
           <p className="product-kicker">A clean shaped around your space</p>
-          <h2>Tell us what needs cleaning. Vibak will take it from there.</h2>
+          <h2>Tell us what needs cleaning. 214 will take it from there.</h2>
           <p>
             Share the property, condition, access, schedule, and service you need
-            for a clear follow-up from Vibak Cleaning Services.
+            for a clear follow-up from 214 Cleaning Services.
           </p>
         </div>
         <div className="quote-actions">
@@ -689,7 +689,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="home-cta-panel" aria-label="Request a Vibak cleaning service">
+      <section className="home-cta-panel" aria-label="Request a 214 cleaning service">
         <div>
           <p className="product-kicker">Ready when you are</p>
           <h2>Tell us what needs cleaning.</h2>
@@ -724,7 +724,7 @@ function ServicesPage() {
       <section className="service-detail-section services-action-section">
         <div className="section-header">
           <div>
-            <p className="product-kicker">All Vibak cleaning services</p>
+            <p className="product-kicker">All 214 Cleaning Services</p>
             <h2>Find the right starting point.</h2>
           </div>
           <a className="text-link" href="/request-service">
@@ -739,7 +739,7 @@ function ServicesPage() {
           <p className="product-kicker">Short request</p>
           <h2>Share the property, service, and priority.</h2>
           <p>
-            Vibak will review the area, property size, access, scope, and
+            214 Cleaning Services will review the area, property size, access, scope, and
             availability before arranging the visit.
           </p>
           <ul className="quote-list">
@@ -840,7 +840,7 @@ function RequestServicePage() {
       <PageHero
         label="Request a service"
         title="Request a cleaning service."
-        copy="Choose the service, add the property details, and Vibak will follow up with the next step."
+        copy="Choose the service, add the property details, and 214 cleaning service will follow up with the next step."
       />
       <section className="process-band request-form-band">
         <div className="request-panel" aria-label="Request a cleaning service">
@@ -849,7 +849,7 @@ function RequestServicePage() {
             <h3>Tell us what you need.</h3>
             <p>
               Add your contact details, service, area, timing, and key property
-              notes. The screening questions help Vibak confirm the right plan.
+              notes. The screening questions help 214cleaning service confirm the right plan.
             </p>
             <div className="request-summary" aria-label="Current request summary">
               {requestSummary.map((item) => (
@@ -942,7 +942,7 @@ function RequestServicePage() {
             <fieldset className="screening-fieldset">
               <legend>In-depth screening</legend>
               <p>
-                These details help Vibak understand the property, access, and cleaning
+                These details help 214 Cleaning Services understand the property, access, and cleaning
                 priorities before accepting or arranging the visit.
               </p>
               <div className="form-grid">
@@ -1059,14 +1059,14 @@ function RequestServicePage() {
                 name="details"
                 value={requestForm.details}
                 onChange={updateRequest}
-                placeholder="Add anything else Vibak should know before following up."
+                placeholder="Add anything else 214 Cleaning Services should know before following up."
                 rows="5"
               />
             </label>
 
             <div className="form-actions">
               <p className="form-note">
-                Add either an email or phone number so Vibak can follow up.
+                Add either an email or phone number so 214 Cleaning Services can follow up.
               </p>
               <button className="pill pill-blue hero-pill" type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Sending..." : "Submit request"}
@@ -1089,9 +1089,9 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        label="About Vibak"
+        label="About 214 Cleaning Services"
         title="Local cleaning shaped around real homes and workplaces."
-        copy="Vibak Cleaning Services is built around clear communication, careful work, and practical cleaning plans for each space."
+        copy="214 Cleaning Services is built around clear communication, careful work, and practical cleaning plans for each space."
         actions={
           <a className="pill pill-blue hero-pill" href="/request-service">
             Request a service
@@ -1103,11 +1103,11 @@ function AboutPage() {
           <p className="product-kicker">Our commitment</p>
           <h2>We listen first, then clean with care.</h2>
           <p>
-            A clean environment supports comfort, health, and productivity. Vibak
+            A clean environment supports comfort, health, and productivity. 214 Cleaning Services
             approaches every request with high-quality products, modern equipment,
             and a practical service brief designed around the space in front of us.
           </p>
-          <div className="quality-list" aria-label="Why choose Vibak">
+          <div className="quality-list" aria-label="Why choose 214 Cleaning Services">
             {commitments.map((item) => (
               <span key={item}>{item}</span>
             ))}
@@ -1129,7 +1129,7 @@ function ContactPage() {
   return (
     <>
       <PageHero
-        label="Contact Vibak"
+        label="Contact 214 Cleaning Services"
         title="Tell us about the property. We will keep the next step simple."
         copy="Share the service, area, property size, access notes, and priority areas for a clear follow-up."
         actions={
@@ -1159,7 +1159,7 @@ function ContactPage() {
         <div className="contact-choice-grid">
           <article className="contact-choice-card">
             <span>01</span>
-            <h3>Call Vibak</h3>
+            <h3>Call 214cleaning service</h3>
             <p>Speak directly about the service, area, and property details.</p>
             <a className="text-link" href={contactPhoneHref}>
               {contactPhone}
@@ -1167,7 +1167,7 @@ function ContactPage() {
           </article>
           <article className="contact-choice-card">
             <span>02</span>
-            <h3>WhatsApp Vibak</h3>
+            <h3>WhatsApp 214cleaning service</h3>
             <p>Send a quick message with your service, area, and preferred time.</p>
             <a className="text-link" href={whatsappHref} target="_blank" rel="noreferrer">
               Message on WhatsApp
@@ -1202,7 +1202,7 @@ function ContactPage() {
             Send a brief
           </a>
         </div>
-        <div className="coverage-grid quote-help-grid" aria-label="What helps Vibak quote">
+        <div className="coverage-grid quote-help-grid" aria-label="What helps 214 Cleaning service quote">
           {requestChecklist.map((item) => (
             <article className="coverage-card" key={item.title}>
               <h3>{item.title}</h3>
